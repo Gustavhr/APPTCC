@@ -1,23 +1,41 @@
 package com.example.app.Model;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+
 import java.util.Date;
 
+@Entity(tableName = "RESPOSTA")
 public class Resposta {
 
-    Integer idpaciente,idpergunta;
+    @ColumnInfo(name = "idpaciente")
+    Integer idpaciente;
+    @ColumnInfo(name = "idpergunta")
+    Integer idpergunta;
+    @NonNull
+    @ColumnInfo(name = "resp")
     Boolean repost;
-    Date datainicio,datavisita;
+    @Nullable
+    @ColumnInfo(name = "datainicio")
+    Date datainicio;
+    @NonNull
+    @ColumnInfo(name = "datavisita")
+    Date datavisita;
+    @Ignore
     Perguntas perguntas;
+    @Ignore
     Paciente paciente;
 
-    public Resposta(Integer idpaciente, Integer idpergunta, Boolean repost, Date datainicio, Date datavisita, Perguntas perguntas, Paciente paciente) {
+    public Resposta(Integer idpaciente, Integer idpergunta, Boolean repost, Date datainicio, Date datavisita) {
         this.idpaciente = idpaciente;
         this.idpergunta = idpergunta;
         this.repost = repost;
         this.datainicio = datainicio;
         this.datavisita = datavisita;
-        this.perguntas = perguntas;
-        this.paciente = paciente;
+
     }
 
     public Integer getIdpaciente() {

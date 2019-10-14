@@ -1,16 +1,39 @@
 package com.example.app.Model;
 
-import java.util.Date;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
+import java.util.Date;
+@Entity(tableName = "MEDICAO")
 public class Medicao {
 
-    Integer id,idpaciente, Pasist,PAdist,FC;
+    @PrimaryKey(autoGenerate = true)
+    Integer id;
+    @ColumnInfo(name = "idpaciente")
+    Integer idpaciente;
+    @ColumnInfo(name = "Pasist")
+    Integer Pasist;
+    @ColumnInfo(name = "Padist")
+    Integer PAdist;
+    @ColumnInfo(name = "FC")
+    Integer FC;
+    @ColumnInfo(name = "Data")
     Date datahora;
-    Boolean rotina,pedido;
+    @ColumnInfo(name = "rotina")
+    Boolean rotina;
+    @ColumnInfo(name = "pedido")
+    Boolean  pedido;
+    @ColumnInfo(name = "comentario")
     String comentario;
+
+
+    @Ignore
     Paciente paciente;
 
-    public Medicao(Integer id, Integer idpaciente, Integer pasist, Integer PAdist, Integer FC, Date datahora, Boolean rotina, Boolean pedido, String comentario, Paciente paciente) {
+
+    public Medicao(Integer id, Integer idpaciente, Integer pasist, Integer PAdist, Integer FC, Date datahora, Boolean rotina, Boolean pedido, String comentario) {
         this.id = id;
         this.idpaciente = idpaciente;
         Pasist = pasist;
@@ -20,7 +43,7 @@ public class Medicao {
         this.rotina = rotina;
         this.pedido = pedido;
         this.comentario = comentario;
-        this.paciente = paciente;
+
     }
 
     public Integer getId() {

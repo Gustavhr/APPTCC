@@ -95,4 +95,11 @@ button = findViewById(R.id.button);
         });
 
     }
+    @Override
+    public void onStart(){
+        super.onStart();
+        txtmainlogin.setText("");
+        txtmainsenha.setText("");
+        user.setSelection(0);
+    }
 }

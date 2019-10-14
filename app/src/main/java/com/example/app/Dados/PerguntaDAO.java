@@ -7,25 +7,26 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.app.Model.Medicao;
-import com.example.app.Model.Resposta;
+import com.example.app.Model.Perguntas;
+import com.example.app.Model.Usuario;
 
 import java.util.List;
 
 @Dao
-public interface MedicaoDAO {
+public interface PerguntaDAO {
+
 
     @Insert
-    void insert (Medicao medicao);
+    void insert (Perguntas perguntas);
 
     @Update
-    void update (Medicao medicao);
+    void update (Perguntas perguntas);
 
     @Delete
-    void delete (Medicao medicao);
+    void delete (Perguntas perguntas);
 
-    @Query("SELECT * FROM MEDICAO")
-    List<Medicao> getAll();
+    @Query("SELECT * FROM PERGUNTA")
+    List<Perguntas> getAll();
 
 //    @Query("SELECT COUNT(*) FROM USER WHERE login =  :usuario AND senha = :senha AND tipo = :tipo ")
 //    int count(String usuario,String senha ,String tipo);
@@ -33,4 +34,5 @@ public interface MedicaoDAO {
 //
 //    @Query("SELECT * FROM USER WHERE login like '%' || :login || '&'")
 //    List<Usuario> findByLogin(String login);
+
 }

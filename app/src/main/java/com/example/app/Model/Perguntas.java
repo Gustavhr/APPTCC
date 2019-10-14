@@ -1,17 +1,26 @@
 package com.example.app.Model;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import java.util.List;
 
+@Entity(tableName = "PERGUNTA")
 public class Perguntas {
-
+    @PrimaryKey(autoGenerate = true)
     Integer id;
+    @NonNull
+    @ColumnInfo(name = "descricao")
     String descricao;
+    @Ignore
     List<Resposta> resposta;
 
-    public Perguntas(Integer id, String descricao, List<Resposta> resposta) {
+    public Perguntas(Integer id, String descricao) {
         this.id = id;
         this.descricao = descricao;
-        this.resposta = resposta;
     }
 
     public Integer getId() {
