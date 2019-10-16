@@ -12,13 +12,17 @@ import android.widget.Toast;
 
 import com.example.app.Dados.EnderecoDatabase;
 import com.example.app.Dados.PacienteDatabase;
+import com.example.app.Dados.RespostaDatabase;
 import com.example.app.Model.Endereco;
 import com.example.app.Model.Paciente;
+import com.example.app.Model.Resposta;
 import com.example.app.Model.Usuario;
 import com.example.app.R;
+import java.util.Calendar;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class HomeCadastroPaciente extends AppCompatActivity {
 
@@ -39,7 +43,10 @@ public class HomeCadastroPaciente extends AppCompatActivity {
     PacienteDatabase pacientedb;
     Paciente pacienteselecionado;
     Endereco enderecoselecionado;
+    Resposta respostaselecionada;
+    List<Resposta> respostaList;
     EnderecoDatabase enderecodb;
+    RespostaDatabase respostaDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +55,7 @@ public class HomeCadastroPaciente extends AppCompatActivity {
         txttelefone = (EditText) findViewById(R.id.txt_telefone);
         pacientedb = PacienteDatabase.getDatabase(HomeCadastroPaciente.this);
         enderecodb = EnderecoDatabase.getDatabase(HomeCadastroPaciente.this);
+        respostaDatabase = RespostaDatabase.getDatabase(HomeCadastroPaciente.this);
         txtrua = (EditText) findViewById(R.id.txt_end);
         txtnumero = (EditText) findViewById(R.id.txt_num);
         txtbairro = (EditText) findViewById(R.id.txt_bairro);
@@ -360,13 +368,182 @@ public class HomeCadastroPaciente extends AppCompatActivity {
             txtcidade.setText(enderecoselecionado.getCidade());
             txtcep.setText(enderecoselecionado.getCEP());
             txtnumero.setText(enderecoselecionado.getNumero());
+
+
+            respostaList = respostaDatabase.respostaDAO().getById(ID);
+            Resposta respost = new Resposta();
+            for(int i=0;i<12;i++)
+          {
+              respost = respostaList.get(i);
+              if(respost.getRepost()==true)
+              {
+                  marcaRadio(i,true,respost.getDatainicio());
+              }
+              else{
+                  marcaRadio(i,false,"");
+              }
+
+
+          }
+
+
         }
 
 
     }
 
+    public void marcaRadio(Integer i,Boolean resp,String date)
+    {
+        if(i==0)
+        {
+            if(resp==true)
+            {
+                rbs1.setChecked(true);
+                date1.setText(date);
+            }
+            else
+            {
+                rbn1.setChecked(true);
+                date1.setText(date);
+            }
+        }
+        else if(i==1){
+            if(resp==true)
+            {
+                rbs2.setChecked(true);
+                date2.setText(date);
+            }
+            else
+            {
+                rbn2.setChecked(true);
+                date2.setText(date);
+            }
+        }
+        else if(i==2){
+            if(resp==true)
+            {
+                rbs3.setChecked(true);
+                date3.setText(date);
+            }
+            else
+            {
+                rbn3.setChecked(true);
+                date3.setText(date);
+            }
+        }
+        else if(i==3){
+            if(resp==true)
+            {
+                rbs4.setChecked(true);
+                date4.setText(date);
+            }
+            else
+            {
+                rbn4.setChecked(true);
+                date4.setText(date);
+            }
+        }
+        else if(i==4){
+            if(resp==true)
+            {
+                rbs5.setChecked(true);
+                date5.setText(date);
+            }
+            else
+            {
+                rbn5.setChecked(true);
+                date5.setText(date);
+            }
+        }
+        else if(i==5){
+            if(resp==true)
+            {
+                rbs6.setChecked(true);
+                date6.setText(date);
+            }
+            else
+            {
+                rbn6.setChecked(true);
+                date6.setText(date);
+            }
+        }
+        else if(i==6){
+            if(resp==true)
+            {
+                rbs7.setChecked(true);
+                date7.setText(date);
+            }
+            else
+            {
+                rbn7.setChecked(true);
+                date7.setText(date);
+            }
+        }
+        else if(i==7){
+            if(resp==true)
+            {
+                rbs8.setChecked(true);
+                date8.setText(date);
+            }
+            else
+            {
+                rbn8.setChecked(true);
+                date8.setText(date);
+            }
+        }
+        else if(i==8){
+            if(resp==true)
+            {
+                rbs9.setChecked(true);
+                date9.setText(date);
+            }
+            else
+            {
+                rbn9.setChecked(true);
+                date9.setText(date);
+            }
+        }
+        else if(i==9){
+            if(resp==true)
+            {
+                rbs10.setChecked(true);
+                date10.setText(date);
+            }
+            else
+            {
+                rbn10.setChecked(true);
+                date10.setText(date);
+            }
+        }
+        else if(i==10){
+            if(resp==true)
+            {
+                rbs11.setChecked(true);
+                date11.setText(date);
+            }
+            else
+            {
+                rbn11.setChecked(true);
+                date11.setText(date);
+            }
+        }
+        else if(i==11){
+            if(resp==true)
+            {
+                rbs12.setChecked(true);
+                date12.setText(date);
+            }
+            else
+            {
+                rbn12.setChecked(true);
+                date12.setText(date);
+            }
+        }
+    }
+
     public void OnClickCadastrar(View view)
         {
+
             datasiniciais[0]=date1.getText().toString();
             datasiniciais[1]=date2.getText().toString();
             datasiniciais[2]=date3.getText().toString();
@@ -410,6 +587,22 @@ public class HomeCadastroPaciente extends AppCompatActivity {
                         endereco.setNumero(numero);
                         endereco.setIdpaciente(id);
                         enderecodb.enderecoDAO().insert(endereco);
+
+                        // VE SE FAZ UM FOR MUDANDO O VETOR DE RESPOSTA E DATA
+                        // SALVA RESPOSTA
+                        Resposta resposta = new Resposta();
+                        Date currentTime = Calendar.getInstance().getTime();
+                        for (int i=0;i<12;i++)
+                        {
+                            resposta.setIdpaciente(id);
+                            resposta.setIdpergunta(i);
+                            resposta.setRepost(respotas[i]);
+                            resposta.setDatainicio(datasiniciais[i]);
+                            resposta.setDatavisita(currentTime.toString());
+                            respostaDatabase.respostaDAO().insert(resposta);
+
+                        }
+
                         Toast.makeText(this, "Boa", Toast.LENGTH_SHORT).show();
                         finish();
                     }
@@ -430,6 +623,92 @@ public class HomeCadastroPaciente extends AppCompatActivity {
                         enderecoselecionado.setNumero(numero);
                         enderecodb.enderecoDAO().update(enderecoselecionado);
 
+                        //ALTERA RESPOSTAS
+                        if(rbs1.isChecked())
+                        respostaList.get(0).setRepost(true);
+                        else
+                            respostaList.get(0).setRepost(false);
+                        respostaList.get(0).setDatainicio(date1.getText().toString());
+                        respostaDatabase.respostaDAO().update(respostaList.get(0));
+
+                        if(rbs2.isChecked())
+                            respostaList.get(1).setRepost(true);
+                        else
+                            respostaList.get(1).setRepost(false);
+                        respostaList.get(1).setDatainicio(date2.getText().toString());
+                        respostaDatabase.respostaDAO().update(respostaList.get(1));
+
+                        if(rbs3.isChecked())
+                            respostaList.get(2).setRepost(true);
+                        else
+                            respostaList.get(2).setRepost(false);
+                        respostaList.get(2).setDatainicio(date3.getText().toString());
+                        respostaDatabase.respostaDAO().update(respostaList.get(2));
+
+                        if(rbs4.isChecked())
+                            respostaList.get(3).setRepost(true);
+                        else
+                            respostaList.get(3).setRepost(false);
+                        respostaList.get(3).setDatainicio(date4.getText().toString());
+                        respostaDatabase.respostaDAO().update(respostaList.get(3));
+
+                        if(rbs5.isChecked())
+                            respostaList.get(4).setRepost(true);
+                        else
+                            respostaList.get(4).setRepost(false);
+                        respostaList.get(4).setDatainicio(date5.getText().toString());
+                        respostaDatabase.respostaDAO().update(respostaList.get(4));
+
+                        if(rbs6.isChecked())
+                            respostaList.get(5).setRepost(true);
+                        else
+                            respostaList.get(5).setRepost(false);
+                        respostaList.get(5).setDatainicio(date6.getText().toString());
+                        respostaDatabase.respostaDAO().update(respostaList.get(5));
+
+                        if(rbs7.isChecked())
+                            respostaList.get(6).setRepost(true);
+                        else
+                            respostaList.get(6).setRepost(false);
+                        respostaList.get(6).setDatainicio(date7.getText().toString());
+                        respostaDatabase.respostaDAO().update(respostaList.get(6));
+
+                        if(rbs8.isChecked())
+                            respostaList.get(7).setRepost(true);
+                        else
+                            respostaList.get(7).setRepost(false);
+                        respostaList.get(7).setDatainicio(date8.getText().toString());
+                        respostaDatabase.respostaDAO().update(respostaList.get(7));
+
+                        if(rbs9.isChecked())
+                            respostaList.get(8).setRepost(true);
+                        else
+                            respostaList.get(8).setRepost(false);
+                        respostaList.get(8).setDatainicio(date9.getText().toString());
+                        respostaDatabase.respostaDAO().update(respostaList.get(8));
+
+                        if(rbs10.isChecked())
+                            respostaList.get(9).setRepost(true);
+                        else
+                            respostaList.get(9).setRepost(false);
+                        respostaList.get(9).setDatainicio(date10.getText().toString());
+                        respostaDatabase.respostaDAO().update(respostaList.get(9));
+
+                        if(rbs11.isChecked())
+                            respostaList.get(10).setRepost(true);
+                        else
+                            respostaList.get(10).setRepost(false);
+                        respostaList.get(10).setDatainicio(date11.getText().toString());
+                        respostaDatabase.respostaDAO().update(respostaList.get(10));
+
+                        if(rbs12.isChecked())
+                            respostaList.get(11).setRepost(true);
+                        else
+                            respostaList.get(11).setRepost(false);
+                        respostaList.get(11).setDatainicio(date12.getText().toString());
+                        respostaDatabase.respostaDAO().update(respostaList.get(11));
+
+
                         Toast.makeText(HomeCadastroPaciente.this,"Cadastro alterado com sucesso", Toast.LENGTH_SHORT).show();
                         finish();
                     }
@@ -446,21 +725,21 @@ public class HomeCadastroPaciente extends AppCompatActivity {
     public boolean valida()
     {
          Boolean valida = true;
-//         int count = 0;
-//        for (Boolean checked: this.respotas
-//             ) {
-//            if(checked == null)
-//            {
-//                valida = false;
-//            }
-//            else if(checked==true )
-//            {
-//                if(datasiniciais[count].equals("")) {
-//                    valida = false;
-//                }
-//            }
-//            count++;
-//        }
+         int count = 0;
+        for (Boolean checked: this.respotas
+             ) {
+            if(checked == null)
+            {
+                valida = false;
+            }
+            else if(checked==true )
+            {
+                if(datasiniciais[count].equals("")) {
+                    valida = false;
+                }
+            }
+            count++;
+        }
         return valida;
     }
 }

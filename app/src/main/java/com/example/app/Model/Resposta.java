@@ -5,12 +5,17 @@ import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
 @Entity(tableName = "RESPOSTA")
 public class Resposta {
 
+
+
+    @PrimaryKey(autoGenerate = true)
+    Integer id;
     @ColumnInfo(name = "idpaciente")
     Integer idpaciente;
     @ColumnInfo(name = "idpergunta")
@@ -20,22 +25,32 @@ public class Resposta {
     Boolean repost;
     @Nullable
     @ColumnInfo(name = "datainicio")
-    Date datainicio;
+    String datainicio;
     @NonNull
     @ColumnInfo(name = "datavisita")
-    Date datavisita;
+    String datavisita;
     @Ignore
     Perguntas perguntas;
     @Ignore
     Paciente paciente;
 
-    public Resposta(Integer idpaciente, Integer idpergunta, Boolean repost, Date datainicio, Date datavisita) {
+    public Resposta(Integer idpaciente, Integer idpergunta, Boolean repost, String datainicio, String datavisita) {
         this.idpaciente = idpaciente;
         this.idpergunta = idpergunta;
         this.repost = repost;
         this.datainicio = datainicio;
         this.datavisita = datavisita;
 
+    }
+    @Ignore
+    public Resposta(){}
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getIdpaciente() {
@@ -62,19 +77,19 @@ public class Resposta {
         this.repost = repost;
     }
 
-    public Date getDatainicio() {
+    public String getDatainicio() {
         return datainicio;
     }
 
-    public void setDatainicio(Date datainicio) {
+    public void setDatainicio(String datainicio) {
         this.datainicio = datainicio;
     }
 
-    public Date getDatavisita() {
+    public String getDatavisita() {
         return datavisita;
     }
 
-    public void setDatavisita(Date datavisita) {
+    public void setDatavisita(String datavisita) {
         this.datavisita = datavisita;
     }
 

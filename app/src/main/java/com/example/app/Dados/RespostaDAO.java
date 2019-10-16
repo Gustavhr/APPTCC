@@ -28,6 +28,12 @@ public interface RespostaDAO {
     @Query("SELECT * FROM RESPOSTA")
     List<Resposta> getAll();
 
+    @Query("SELECT * FROM RESPOSTA WHERE idpaciente like :id")
+    List<Resposta> getById(Integer id);
+
+    @Query("SELECT * FROM RESPOSTA WHERE idpaciente like :id and idpergunta like:idpergunta")
+    List<Resposta> findByIds(Integer id,Integer idpergunta);
+
 //    @Query("SELECT COUNT(*) FROM USER WHERE login =  :usuario AND senha = :senha AND tipo = :tipo ")
 //    int count(String usuario,String senha ,String tipo);
 //

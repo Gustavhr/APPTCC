@@ -13,14 +13,14 @@ public class Medicao {
     Integer id;
     @ColumnInfo(name = "idpaciente")
     Integer idpaciente;
-    @ColumnInfo(name = "Pasist")
-    Integer Pasist;
-    @ColumnInfo(name = "Padist")
-    Integer PAdist;
+    @ColumnInfo(name = "pasist")
+    Integer pasist;
+    @ColumnInfo(name = "padist")
+    Integer padist;
     @ColumnInfo(name = "FC")
     Integer FC;
     @ColumnInfo(name = "Data")
-    Date datahora;
+    String datahora;
     @ColumnInfo(name = "rotina")
     Boolean rotina;
     @ColumnInfo(name = "pedido")
@@ -33,17 +33,33 @@ public class Medicao {
     Paciente paciente;
 
 
-    public Medicao(Integer id, Integer idpaciente, Integer pasist, Integer PAdist, Integer FC, Date datahora, Boolean rotina, Boolean pedido, String comentario) {
-        this.id = id;
+    public Medicao( Integer idpaciente, Integer pasist, Integer padist, Integer FC, String datahora, Boolean rotina, Boolean pedido, String comentario) {
+
         this.idpaciente = idpaciente;
-        Pasist = pasist;
-        this.PAdist = PAdist;
+        this.pasist = pasist;
+        this.padist = padist;
         this.FC = FC;
         this.datahora = datahora;
         this.rotina = rotina;
         this.pedido = pedido;
         this.comentario = comentario;
 
+    }
+
+    public Integer getPasist() {
+        return pasist;
+    }
+
+    public void setPasist(Integer pasist) {
+        this.pasist = pasist;
+    }
+
+    public Integer getPadist() {
+        return padist;
+    }
+
+    public void setPadist(Integer padist) {
+        this.padist = padist;
     }
 
     public Integer getId() {
@@ -62,21 +78,6 @@ public class Medicao {
         this.idpaciente = idpaciente;
     }
 
-    public Integer getPasist() {
-        return Pasist;
-    }
-
-    public void setPasist(Integer pasist) {
-        Pasist = pasist;
-    }
-
-    public Integer getPAdist() {
-        return PAdist;
-    }
-
-    public void setPAdist(Integer PAdist) {
-        this.PAdist = PAdist;
-    }
 
     public Integer getFC() {
         return FC;
@@ -86,11 +87,11 @@ public class Medicao {
         this.FC = FC;
     }
 
-    public Date getDatahora() {
+    public String getDatahora() {
         return datahora;
     }
 
-    public void setDatahora(Date datahora) {
+    public void setDatahora(String datahora) {
         this.datahora = datahora;
     }
 
