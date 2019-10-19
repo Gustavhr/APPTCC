@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.app.Activity.HomeCadastroPaciente;
 import com.example.app.Activity.HomeCadastroUser;
 import com.example.app.Activity.HomeColetor;
+import com.example.app.Activity.HomeMedicao;
 import com.example.app.Activity.HomeSupervisor;
 import com.example.app.Dados.PacienteDatabase;
 import com.example.app.Dados.UsuarioDatabase;
@@ -53,11 +54,18 @@ public class HomeColetorAdapter  extends RecyclerView.Adapter<HomeColetorAdapter
 
 
 
+//        viewH.txtnome.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Paciente pacienteselecionado = lista.get(position);
+//                Intent intent = new Intent(context, HomeCadastroPaciente.class);
+//                intent.putExtra("usuario",pacienteselecionado);
+//                context.startActivity(intent);
         viewH.txtnome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Paciente pacienteselecionado = lista.get(position);
-                Intent intent = new Intent(context, HomeCadastroPaciente.class);
+                Intent intent = new Intent(context, HomeMedicao.class);
                 intent.putExtra("usuario",pacienteselecionado);
                 context.startActivity(intent);
             }

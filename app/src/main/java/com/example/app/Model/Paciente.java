@@ -20,6 +20,26 @@ public class Paciente implements Serializable {
 
     Integer idendereco;
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    @ColumnInfo(name = "cpf")
+    String cpf;
+    @ColumnInfo(name="rg")
+    String rg;
     @NonNull
     @ColumnInfo(name = "nome")
     String nome;
@@ -40,10 +60,12 @@ public class Paciente implements Serializable {
 //    List<Resposta> respostas;
 
 
-    public Paciente(String nome, String telefone,Character sexo) {
+    public Paciente(String nome, String telefone,Character sexo,String cpf,String rg) {
         this.nome = nome;
         this.telefone = telefone;
         this.sexo = sexo;
+        this.cpf = cpf;
+        this.rg=rg;
         //this.datanascimento = datanascimento;
         //this.endereco = endereco;
     }

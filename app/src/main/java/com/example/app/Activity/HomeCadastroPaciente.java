@@ -35,7 +35,7 @@ public class HomeCadastroPaciente extends AppCompatActivity {
     // RESPOSTAS
     Boolean [] respotas = new Boolean[12];
     String [] datasiniciais = new String[12];
-    EditText txtnome,txttelefone,txtrua,txtnumero,txtbairro,txtcidade,txtcep;
+    EditText txtnome,txttelefone,txtrua,txtnumero,txtbairro,txtcidade,txtcep,txtcpf,txtrg;
     Character sexo;
 
 
@@ -62,8 +62,8 @@ public class HomeCadastroPaciente extends AppCompatActivity {
         txtcidade = (EditText) findViewById(R.id.txt_cidade);
         txtcep  = (EditText) findViewById(R.id.txtcep);
         txtmulti = (EditText) findViewById(R.id.txtmulti);
-
-
+        txtcpf = (EditText) findViewById(R.id.txt_cpfpaciente);
+        txtrg = (EditText) findViewById(R.id.txt_rgpaciente);
 
 
 // DATAS
@@ -348,13 +348,15 @@ public class HomeCadastroPaciente extends AppCompatActivity {
             }
         });
 
-        pacienteselecionado = (Paciente) getIntent().getSerializableExtra("usuario");
+        pacienteselecionado = (Paciente) getIntent().getSerializableExtra("usuariocadastrado");
 
         if(pacienteselecionado!=null){
             Integer ID = pacientedb.pacienteDAO().findID(pacienteselecionado.getNome());
             enderecoselecionado = (Endereco) enderecodb.enderecoDAO().findbyid(ID);
             txtnome.setText(pacienteselecionado.getNome());
             txttelefone.setText(pacienteselecionado.getTelefone());
+            txtcpf.setText(pacienteselecionado.getCpf());
+            txtrg.setText(pacienteselecionado.getRg());
             Character sexaux = pacienteselecionado.getSexo();
             if(sexaux=='M')
             {
@@ -567,7 +569,8 @@ public class HomeCadastroPaciente extends AppCompatActivity {
                     String bairro = txtbairro.getText().toString();
                     String cidade = txtcidade.getText().toString();
                     String cep = txtcep.getText().toString();
-
+                    String cpf = txtcpf.getText().toString();
+                    String rg = txtrg.getText().toString();
                     //INSERCAO
                     if(pacienteselecionado==null) {
 
@@ -576,6 +579,8 @@ public class HomeCadastroPaciente extends AppCompatActivity {
                         paciente.setNome(nome);
                         paciente.setTelefone(telefone);
                         paciente.setSexo(sexo);
+                        paciente.setCpf(cpf);
+                        paciente.setRg(rg);
                         pacientedb.pacienteDAO().insert(paciente);
                         Integer id = pacientedb.pacienteDAO().findID(nome);
                         //SALVA ENDEREÇO
@@ -613,6 +618,8 @@ public class HomeCadastroPaciente extends AppCompatActivity {
                         pacienteselecionado.setNome(nome);
                         pacienteselecionado.setTelefone(telefone);
                         pacienteselecionado.setSexo(sexo);
+                        pacienteselecionado.setCpf(cpf);
+                        pacienteselecionado.setRg(rg);
                         pacientedb.pacienteDAO().update(pacienteselecionado);
 
                         //ALTERA ENDEREÇO

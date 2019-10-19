@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.HomeColetor">
+    tools:context=".Activity.HomeMedicao">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/homecoletortoolbar"
+        android:id="@+id/homemedicaotoolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -16,20 +16,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Cadastro de pacientes"/>
+        app:title="Medições" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/homecoletorrecycle"
-        android:layout_width="410dp"
-        android:layout_height="651dp"
-        android:layout_marginTop="20dp"
+        android:id="@+id/homemedicaorecycle"
+        android:layout_width="402dp"
+        android:layout_height="546dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homecoletortoolbar" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/homecoletorfloating"
+        android:id="@+id/homemedicaofloating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -38,4 +36,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+    <Button
+        android:id="@+id/btneditarcadastropaciente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar cadastro do paciente"
+        app:layout_constraintBottom_toTopOf="@+id/homemedicaorecycle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homemedicaotoolbar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

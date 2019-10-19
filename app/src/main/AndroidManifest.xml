@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Activity.HomeCadastroPaciente"></activity>
+        <activity android:name=".Activity.HomeMedicao"></activity>
+        <activity android:name=".Activity.HomeCadastroMedicao" />
+        <activity android:name=".Activity.HomeCadastroPaciente" />
         <activity android:name=".Activity.HomeCadastroUser" />
         <activity android:name=".Activity.HomeSupervisor" />
         <activity android:name=".Activity.HomeColetor" />

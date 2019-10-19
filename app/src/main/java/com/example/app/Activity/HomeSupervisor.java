@@ -43,7 +43,7 @@ public class HomeSupervisor extends AppCompatActivity {
         db = UsuarioDatabase.getDatabase(HomeSupervisor.this);
         floating = findViewById(R.id.homesupervisorfloating);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     recyclerView = findViewById(R.id.homesupervisorrecycle);
 
         atualizaTela();

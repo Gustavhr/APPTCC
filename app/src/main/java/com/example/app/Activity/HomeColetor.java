@@ -47,7 +47,8 @@ public class HomeColetor extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         recyclerView = findViewById(R.id.homecoletorrecycle);
-
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         atualizaTela();
 
         floating.setOnClickListener(new View.OnClickListener() {
