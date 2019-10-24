@@ -7,6 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.example.app.Model.Medicao;
+import com.example.app.Model.Paciente;
 import com.example.app.Model.Resposta;
 
 @Database(entities = {Medicao.class},version = 1,exportSchema = false )

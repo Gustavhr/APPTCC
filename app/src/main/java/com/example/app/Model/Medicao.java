@@ -2,12 +2,20 @@ package com.example.app.Model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import static androidx.room.ForeignKey.CASCADE;
+
 @Entity(tableName = "MEDICAO")
+//@Entity(tableName = "MEDICAO",foreignKeys = @ForeignKey(entity = Paciente.class,
+//        parentColumns = "id",
+//        childColumns = "idpaciente",
+//        onDelete = CASCADE))
 public class Medicao implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
@@ -46,6 +54,7 @@ public class Medicao implements Serializable {
         this.comentario = comentario;
 
     }
+    @Ignore
 public Medicao(){}
     public Integer getPasist() {
         return pasist;

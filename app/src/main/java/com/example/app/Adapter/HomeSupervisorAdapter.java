@@ -93,7 +93,7 @@ public class HomeSupervisorAdapter extends RecyclerView.Adapter<HomeSupervisorAd
 
 
 
-        viewH.txtnome.setOnClickListener(new View.OnClickListener() {
+        viewH.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Usuario usuarioselecionado = lista.get(position);
@@ -104,7 +104,7 @@ public class HomeSupervisorAdapter extends RecyclerView.Adapter<HomeSupervisorAd
         });
 
 
-            viewH.txtnome.setOnLongClickListener(new View.OnLongClickListener(){
+            viewH.itemView.setOnLongClickListener(new View.OnLongClickListener(){
                 @Override
                 public boolean onLongClick(View v)
                 {

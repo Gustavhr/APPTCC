@@ -13,6 +13,7 @@ import android.widget.Button;
 import com.example.app.Adapter.HomeColetorAdapter;
 import com.example.app.Adapter.HomeMedicaoAdapter;
 import com.example.app.Dados.MedicaoDatabase;
+import com.example.app.Dados.PacienteDatabase;
 import com.example.app.Model.Medicao;
 import com.example.app.Model.Paciente;
 import com.example.app.R;
@@ -31,6 +32,8 @@ public class HomeMedicao extends AppCompatActivity {
     List<Medicao> listmedicao = new ArrayList<>();
     Paciente pacienteselecionado;
     Button editarcadastro;
+    PacienteDatabase pacientedb;
+    Integer ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,7 @@ public class HomeMedicao extends AppCompatActivity {
         setContentView(R.layout.activity_home_medicao);
         toolbar = findViewById(R.id.homemedicaotoolbar);
         medicaodb = MedicaoDatabase.getDatabase(HomeMedicao.this);
+        pacientedb = PacienteDatabase.getDatabase(HomeMedicao.this);
         floating = findViewById(R.id.homemedicaofloating);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -45,13 +49,15 @@ public class HomeMedicao extends AppCompatActivity {
         editarcadastro = (Button) findViewById(R.id.btneditarcadastropaciente);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        atualizaTela();
+
 
         floating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomeMedicao.this, HomeCadastroMedicao.class);
-                startActivity(i);
+
+                Intent intent = new Intent(HomeMedicao.this, HomeCadastroMedicao.class);
+                intent.putExtra("idpaciente",ID);
+                HomeMedicao.this.startActivity(intent);
             }
         });
 
@@ -59,6 +65,7 @@ public class HomeMedicao extends AppCompatActivity {
 
         pacienteselecionado = (Paciente) getIntent().getSerializableExtra("usuario");
 
+        ID = pacientedb.pacienteDAO().findID(pacienteselecionado.getNome());
         editarcadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,14 +77,15 @@ public class HomeMedicao extends AppCompatActivity {
             }
         });
 
-
+        atualizaTela();
 
     }
 
 
     public void atualizaTela()
     {
-        listmedicao = medicaodb.medicaoDAO().getAll();
+
+        listmedicao = medicaodb.medicaoDAO().getAllById(ID);
         homeMedicaoAdapter = new HomeMedicaoAdapter(HomeMedicao.this,listmedicao);
         RecyclerView.LayoutManager layoutManager =
                 new LinearLayoutManager((getApplicationContext()));

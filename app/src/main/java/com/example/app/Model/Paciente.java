@@ -20,21 +20,6 @@ public class Paciente implements Serializable {
 
     Integer idendereco;
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getRg() {
-        return rg;
-    }
-
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
 
     @ColumnInfo(name = "cpf")
     String cpf;
@@ -127,4 +112,19 @@ public class Paciente implements Serializable {
 //    public void setEndereco(Endereco endereco) {
 //        this.endereco = endereco;
 //    }
+public String getCpf() {
+    return cpf;
+}
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
 }

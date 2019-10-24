@@ -18,6 +18,8 @@ import com.example.app.Model.Paciente;
 import com.example.app.Model.Resposta;
 import com.example.app.Model.Usuario;
 import com.example.app.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.Calendar;
 
 import java.util.ArrayList;
@@ -47,6 +49,7 @@ public class HomeCadastroPaciente extends AppCompatActivity {
     List<Resposta> respostaList;
     EnderecoDatabase enderecodb;
     RespostaDatabase respostaDatabase;
+    FloatingActionButton floating;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +67,15 @@ public class HomeCadastroPaciente extends AppCompatActivity {
         txtmulti = (EditText) findViewById(R.id.txtmulti);
         txtcpf = (EditText) findViewById(R.id.txt_cpfpaciente);
         txtrg = (EditText) findViewById(R.id.txt_rgpaciente);
+        floating = findViewById(R.id.floatingcadastropaciente);
+
+        floating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                cadastraPaciente();
+            }
+        });
 
 
 // DATAS
@@ -543,7 +555,7 @@ public class HomeCadastroPaciente extends AppCompatActivity {
         }
     }
 
-    public void OnClickCadastrar(View view)
+    public void cadastraPaciente()
         {
 
             datasiniciais[0]=date1.getText().toString();

@@ -19,6 +19,7 @@ import com.example.app.Adapter.HomeSupervisorAdapter;
 import com.example.app.Model.Usuario;
 import com.example.app.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,7 @@ public class HomeSupervisor extends AppCompatActivity {
     UsuarioDatabase db;
     HomeSupervisorAdapter supervisorAdapter;
     List<Usuario> listusuario = new ArrayList<>();
+    private MaterialSearchView searchView;
 
 @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,16 +46,25 @@ public class HomeSupervisor extends AppCompatActivity {
         floating = findViewById(R.id.homesupervisorfloating);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-    recyclerView = findViewById(R.id.homesupervisorrecycle);
+        recyclerView = findViewById(R.id.homesupervisorrecycle);
+        searchView = findViewById(R.id.searchViewId);
 
+        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                pesquisaUsuarios(newText);
+                return true;
+            }
+        });
         atualizaTela();
-
 
 //        user = new Usuario();
 //        toolbar.setTitle("Bem vindo "+user.getNome());
-
-
-
         floating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +75,16 @@ public class HomeSupervisor extends AppCompatActivity {
 
 
     }
+
+    public void pesquisaUsuarios(String usuarionome)
+    {
+        listusuario = db.usuarioDAO().findByNome( usuarionome);
+        supervisorAdapter = new HomeSupervisorAdapter(HomeSupervisor.this,listusuario);
+        recyclerView.setAdapter(supervisorAdapter);
+        supervisorAdapter.notifyDataSetChanged();
+
+    }
+
 
 public void atualizaTela()
 {
@@ -101,18 +122,19 @@ public void atualizaTela()
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.homesupervisormenu, menu);
+        MenuItem menuItem = menu.findItem(R.id.mnpesquisarsupervisor);
+        searchView.setMenuItem(menuItem);
             return true;
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.itemcoleta:
-                Toast.makeText(this, "Clicou coleta", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(HomeSupervisor.this, HomeColetor.class);
+                startActivity(i);
 
                 break;
-            case  android.R.id.home:
-                Toast.makeText(this, "Clicou voltar", Toast.LENGTH_SHORT).show();
-                break;
+
         }
         return super.onOptionsItemSelected(item);
     }

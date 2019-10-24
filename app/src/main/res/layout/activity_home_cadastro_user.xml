@@ -6,15 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".Activity.HomeCadastroUser">
 
-    <Button
-        android:id="@+id/btnusercadastro"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingcadastrouser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:text="Cadastrar"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="60dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerusercadastro" />
+        app:srcCompat="@android:drawable/ic_input_add" />
 
     <TextView
         android:id="@+id/txtuserlogin"

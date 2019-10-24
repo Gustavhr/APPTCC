@@ -27,6 +27,9 @@ public interface MedicaoDAO {
     @Query("SELECT * FROM MEDICAO")
     List<Medicao> getAll();
 
+    @Query("SELECT * FROM MEDICAO WHERE idpaciente like :id")
+    List<Medicao> getAllById(Integer id);
+
 //    @Query("SELECT COUNT(*) FROM USER WHERE login =  :usuario AND senha = :senha AND tipo = :tipo ")
 //    int count(String usuario,String senha ,String tipo);
 //

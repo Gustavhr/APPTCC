@@ -1089,14 +1089,18 @@
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/btncadastropaciente"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="OnClickCadastrar"
-                android:text="Cadastrar" />
-
         </LinearLayout>
     </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingcadastropaciente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="35dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

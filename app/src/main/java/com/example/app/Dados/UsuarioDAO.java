@@ -33,4 +33,9 @@ public interface UsuarioDAO {
     @Query("SELECT * FROM USER WHERE login like '%' || :login || '&'")
     List<Usuario> findByLogin(String login);
 
+    //@Query("SELECT * FROM USER WHERE nome like '%' ||:nome|| '&'")
+    @Query("SELECT * FROM USER WHERE nome like :nome")
+
+    List<Usuario> findByNome(String nome);
+
 }

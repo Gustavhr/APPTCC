@@ -57,7 +57,7 @@ public class HomeMedicaoAdapter extends RecyclerView.Adapter<HomeMedicaoAdapter.
 
 
 
-        viewH.txtpasist.setOnClickListener(new View.OnClickListener() {
+        viewH.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Medicao medicaoselecionada = lista.get(position);
@@ -68,7 +68,7 @@ public class HomeMedicaoAdapter extends RecyclerView.Adapter<HomeMedicaoAdapter.
         });
 
 
-        viewH.txtpasist.setOnLongClickListener(new View.OnLongClickListener(){
+        viewH.itemView.setOnLongClickListener(new View.OnLongClickListener(){
             @Override
             public boolean onLongClick(View v)
             {
