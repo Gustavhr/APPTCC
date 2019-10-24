@@ -29,89 +29,89 @@ public class HomeCadastroMedicao extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_cadastro_medicao);
+        try {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_home_cadastro_medicao);
 
-        txtpadist = (EditText) findViewById(R.id.txt_padist);
-        txtpasist = (EditText) findViewById(R.id.txt_pasist);
-        txtfc = (EditText) findViewById(R.id.txt_fc);
-        txtcoment = (EditText) findViewById(R.id.txt_comentario);
-        db = MedicaoDatabase.getDatabase(HomeCadastroMedicao.this);
-        rgrotina = findViewById(R.id.rgrotina);
-        rgpedido = findViewById(R.id.rgpedido);
-        rbrs = findViewById(R.id.rbrotinasim);
-        rbrn = findViewById(R.id.rbrotinanao);
-        rbps = findViewById(R.id.rbpedidosim);
-        rbpn = findViewById(R.id.rbpedidonao);
-        floating = findViewById(R.id.floatingcadastromedicao);
+            txtpadist = (EditText) findViewById(R.id.txt_padist);
+            txtpasist = (EditText) findViewById(R.id.txt_pasist);
+            txtfc = (EditText) findViewById(R.id.txt_fc);
+            txtcoment = (EditText) findViewById(R.id.txt_comentario);
+            db = MedicaoDatabase.getDatabase(HomeCadastroMedicao.this);
+            rgrotina = findViewById(R.id.rgrotina);
+            rgpedido = findViewById(R.id.rgpedido);
+            rbrs = findViewById(R.id.rbrotinasim);
+            rbrn = findViewById(R.id.rbrotinanao);
+            rbps = findViewById(R.id.rbpedidosim);
+            rbpn = findViewById(R.id.rbpedidonao);
+            floating = findViewById(R.id.floatingcadastromedicao);
 
-        floating.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            floating.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-               cadastraUsuario();
-            }
-        });
-
-        rgrotina.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if(i==R.id.rbrotinasim){
-                   rotina = true;
+                    cadastraUsuario();
                 }
-                if(i==R.id.rbrotinanao)
-                {
-                   rotina = false;
+            });
+
+            rgrotina.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                    if (i == R.id.rbrotinasim) {
+                        rotina = true;
+                    }
+                    if (i == R.id.rbrotinanao) {
+                        rotina = false;
+                    }
                 }
-            }
-        });
+            });
 
-        rgpedido.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if(i==R.id.rbpedidosim){
-                    pedido = true;
+            rgpedido.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                    if (i == R.id.rbpedidosim) {
+                        pedido = true;
+                    }
+                    if (i == R.id.rbpedidonao) {
+                        pedido = false;
+                    }
                 }
-                if(i==R.id.rbpedidonao)
-                {
-                    pedido = false;
-                }
-            }
-        });
+            });
 
 
-        medicaoselecionada = (Medicao) getIntent().getSerializableExtra("medicao");
-        IDpaciente = (Integer) getIntent().getSerializableExtra("idpaciente");
+            medicaoselecionada = (Medicao) getIntent().getSerializableExtra("medicao");
+            IDpaciente = (Integer) getIntent().getSerializableExtra("idpaciente");
 
-        if(medicaoselecionada!=null){
+            if (medicaoselecionada != null) {
 //            Integer ID = pacientedb.pacienteDAO().findID(pacienteselecionado.getNome());
 //            enderecoselecionado = (Endereco) enderecodb.enderecoDAO().findbyid(ID);
-            txtcoment.setText(medicaoselecionada.getComentario());
-            txtfc.setText(String.valueOf(medicaoselecionada.getFC()));
-            txtpasist.setText(String.valueOf(medicaoselecionada.getPasist()));
-            txtpadist.setText(String.valueOf(medicaoselecionada.getPadist()));
+                txtcoment.setText(medicaoselecionada.getComentario());
+                txtfc.setText(String.valueOf(medicaoselecionada.getFC()));
+                txtpasist.setText(String.valueOf(medicaoselecionada.getPasist()));
+                txtpadist.setText(String.valueOf(medicaoselecionada.getPadist()));
 
-            Boolean pedidoaux,rotinaaux;
-            pedidoaux = medicaoselecionada.getPedido();
-            rotinaaux = medicaoselecionada.getRotina();
+                Boolean pedidoaux, rotinaaux;
+                pedidoaux = medicaoselecionada.getPedido();
+                rotinaaux = medicaoselecionada.getRotina();
 
-            if(pedidoaux==true)
-            {
-                rbps.setChecked(true);
-            }
-            else{
-                rbpn.setChecked(true);
-            }
+                if (pedidoaux == true) {
+                    rbps.setChecked(true);
+                } else {
+                    rbpn.setChecked(true);
+                }
 
-            if(rotinaaux==true)
-            {
-                rbrs.setChecked(true);
-            }
-            else{
-                rbrn.setChecked(true);
+                if (rotinaaux == true) {
+                    rbrs.setChecked(true);
+                } else {
+                    rbrn.setChecked(true);
+                }
             }
         }
-
+        catch(Exception ex)
+        {
+            Toast.makeText(this, "Houve um erro na criação da página" , Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ex.getMessage() , Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -166,21 +166,28 @@ public class HomeCadastroMedicao extends AppCompatActivity {
     }
         catch (NumberFormatException ex){
             Toast.makeText(this, "Existem campos com dados em formato incorreto", Toast.LENGTH_SHORT).show();
+
         }
         catch(Exception ex){
-            
+            Toast.makeText(this, "Houve algum erro no cadastro:  " + ex.getMessage() , Toast.LENGTH_SHORT).show();
         }
 
     }
     public boolean valida()
     {
-        Boolean valida = true;
-        int count = 0;
-        if(txtpadist.toString() =="" || txtpasist.toString() =="" || txtfc.toString()=="" || txtcoment.toString()=="" ||
-           rotina == null || pedido ==null)
-        {
-            valida = false;
+        try {
+            Boolean valida = true;
+            int count = 0;
+            if (txtpadist.toString() == "" || txtpasist.toString() == "" || txtfc.toString() == "" || txtcoment.toString() == "" ||
+                    rotina == null || pedido == null) {
+                valida = false;
+            }
+            return valida;
         }
-        return valida;
+        catch  (Exception ex)
+        {
+            Toast.makeText(this,"Houve algum erro na validação dos campos" , Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 }

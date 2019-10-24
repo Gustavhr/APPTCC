@@ -38,35 +38,46 @@ public class HomeColetor extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_coletor);
+        try {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_home_coletor);
 
-        toolbar = findViewById(R.id.homecoletortoolbar);
-        db = PacienteDatabase.getDatabase(HomeColetor.this);
-        floating = findViewById(R.id.homecoletorfloating);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        recyclerView = findViewById(R.id.homecoletorrecycle);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        atualizaTela();
+            toolbar = findViewById(R.id.homecoletortoolbar);
+            db = PacienteDatabase.getDatabase(HomeColetor.this);
+            floating = findViewById(R.id.homecoletorfloating);
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            recyclerView = findViewById(R.id.homecoletorrecycle);
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            atualizaTela();
 
-        floating.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeColetor.this, HomeCadastroPaciente.class);
-                startActivity(i);
-            }
-        });
+            floating.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(HomeColetor.this, HomeCadastroPaciente.class);
+                    startActivity(i);
+                }
+            });
+        }
+        catch (Exception ex){
+                Toast.makeText(HomeColetor.this, "Houve um erro na criação da página:  " + ex.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
     public void atualizaTela()
     {
-        listpaciente = db.pacienteDAO().getAll();
-        homeColetorAdapter = new HomeColetorAdapter(HomeColetor.this,listpaciente);
-        RecyclerView.LayoutManager layoutManager =
-                new LinearLayoutManager((getApplicationContext()));
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(homeColetorAdapter);
+        try {
+            listpaciente = db.pacienteDAO().getAll();
+            homeColetorAdapter = new HomeColetorAdapter(HomeColetor.this, listpaciente);
+            RecyclerView.LayoutManager layoutManager =
+                    new LinearLayoutManager((getApplicationContext()));
+            recyclerView.setLayoutManager(layoutManager);
+            recyclerView.setAdapter(homeColetorAdapter);
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(HomeColetor.this, "Houve um erro na atualização da tela:  " + ex.getMessage() , Toast.LENGTH_SHORT).show();
+        }
     }
 
 //    @Override

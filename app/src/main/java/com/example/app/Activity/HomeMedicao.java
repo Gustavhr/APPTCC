@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.app.Adapter.HomeColetorAdapter;
 import com.example.app.Adapter.HomeMedicaoAdapter;
@@ -37,60 +38,69 @@ public class HomeMedicao extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_medicao);
-        toolbar = findViewById(R.id.homemedicaotoolbar);
-        medicaodb = MedicaoDatabase.getDatabase(HomeMedicao.this);
-        pacientedb = PacienteDatabase.getDatabase(HomeMedicao.this);
-        floating = findViewById(R.id.homemedicaofloating);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        recyclerView = findViewById(R.id.homemedicaorecycle);
-        editarcadastro = (Button) findViewById(R.id.btneditarcadastropaciente);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        try {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_home_medicao);
+            toolbar = findViewById(R.id.homemedicaotoolbar);
+            medicaodb = MedicaoDatabase.getDatabase(HomeMedicao.this);
+            pacientedb = PacienteDatabase.getDatabase(HomeMedicao.this);
+            floating = findViewById(R.id.homemedicaofloating);
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            recyclerView = findViewById(R.id.homemedicaorecycle);
+            editarcadastro = (Button) findViewById(R.id.btneditarcadastropaciente);
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
 
-        floating.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            floating.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-                Intent intent = new Intent(HomeMedicao.this, HomeCadastroMedicao.class);
-                intent.putExtra("idpaciente",ID);
-                HomeMedicao.this.startActivity(intent);
-            }
-        });
+                    Intent intent = new Intent(HomeMedicao.this, HomeCadastroMedicao.class);
+                    intent.putExtra("idpaciente", ID);
+                    HomeMedicao.this.startActivity(intent);
+                }
+            });
 
 
+            pacienteselecionado = (Paciente) getIntent().getSerializableExtra("usuario");
 
-        pacienteselecionado = (Paciente) getIntent().getSerializableExtra("usuario");
+            ID = pacientedb.pacienteDAO().findID(pacienteselecionado.getNome());
+            editarcadastro.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-        ID = pacientedb.pacienteDAO().findID(pacienteselecionado.getNome());
-        editarcadastro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                    Intent intent = new Intent(HomeMedicao.this, HomeCadastroPaciente.class);
+                    intent.putExtra("usuariocadastrado", pacienteselecionado);
+                    HomeMedicao.this.startActivity(intent);
 
-                Intent intent = new Intent(HomeMedicao.this, HomeCadastroPaciente.class);
-                intent.putExtra("usuariocadastrado",pacienteselecionado);
-                HomeMedicao.this.startActivity(intent);
+                }
+            });
 
-            }
-        });
-
-        atualizaTela();
+            atualizaTela();
+        }
+        catch(Exception ex)
+        {
+            Toast.makeText(this, "Houve um erro na criação da página:  " + ex.getMessage() , Toast.LENGTH_SHORT).show();
+        }
 
     }
 
 
     public void atualizaTela()
     {
-
-        listmedicao = medicaodb.medicaoDAO().getAllById(ID);
-        homeMedicaoAdapter = new HomeMedicaoAdapter(HomeMedicao.this,listmedicao);
-        RecyclerView.LayoutManager layoutManager =
-                new LinearLayoutManager((getApplicationContext()));
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(homeMedicaoAdapter);
+    try {
+    listmedicao = medicaodb.medicaoDAO().getAllById(ID);
+    homeMedicaoAdapter = new HomeMedicaoAdapter(HomeMedicao.this, listmedicao);
+    RecyclerView.LayoutManager layoutManager =
+            new LinearLayoutManager((getApplicationContext()));
+    recyclerView.setLayoutManager(layoutManager);
+    recyclerView.setAdapter(homeMedicaoAdapter);
+        }
+    catch(Exception ex){
+    Toast.makeText(this, "Houve um erro na atualização da tela:  " + ex.getMessage() , Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

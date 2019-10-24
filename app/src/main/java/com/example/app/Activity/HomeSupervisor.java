@@ -39,6 +39,7 @@ public class HomeSupervisor extends AppCompatActivity {
 
 @Override
     protected void onCreate(Bundle savedInstanceState) {
+    try {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_supervisor);
         toolbar = findViewById(R.id.homesupervisortoolbar);
@@ -73,51 +74,43 @@ public class HomeSupervisor extends AppCompatActivity {
             }
         });
 
-
+    }
+    catch(Exception ex)
+    {
+        Toast.makeText(this, "Houve um erro na criação da página:  " + ex.getMessage() , Toast.LENGTH_SHORT).show();
+    }
     }
 
     public void pesquisaUsuarios(String usuarionome)
     {
-        listusuario = db.usuarioDAO().findByNome( usuarionome);
-        supervisorAdapter = new HomeSupervisorAdapter(HomeSupervisor.this,listusuario);
-        recyclerView.setAdapter(supervisorAdapter);
-        supervisorAdapter.notifyDataSetChanged();
+        try {
+            listusuario = db.usuarioDAO().findByNome(usuarionome);
+            supervisorAdapter = new HomeSupervisorAdapter(HomeSupervisor.this, listusuario);
+            recyclerView.setAdapter(supervisorAdapter);
+            supervisorAdapter.notifyDataSetChanged();
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(this, "Houve um erro na pesquisa:  " + ex.getMessage() , Toast.LENGTH_SHORT).show();
+        }
 
     }
 
 
 public void atualizaTela()
 {
-    listusuario = db.usuarioDAO().getAll();
-    supervisorAdapter = new HomeSupervisorAdapter(HomeSupervisor.this,listusuario);
-    RecyclerView.LayoutManager layoutManager =
-            new LinearLayoutManager((getApplicationContext()));
-            recyclerView.setLayoutManager(layoutManager);
-           recyclerView.setAdapter(supervisorAdapter);
-
-
-
-//    userdao = new UserDAO(this);
-//    usuarios = userdao.getLista();
-//
-//    HomeSupervisorAdapter homeadapter = new HomeSupervisorAdapter(usuarios, getApplicationContext(), new HomeSupervisorAdapter.OnItemClickListener() {
-//        @Override
-//        public void onItemClick(Usuario usuarios) {
-//            //            Usuario users = (Usuario) usuarios;
-//            Toast.makeText(HomeSupervisor.this, ""+usuarios.getNome(), Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(HomeSupervisor.this ,HomeCadastroUser.class);
-//            intent.putExtra("usuario",usuarios.getLogin());
-//            startActivity(intent);
-//        }
-//    });
-//    recyclerView.setAdapter(homeadapter);
-//
-//    RecyclerView.LayoutManager layoutM = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
-//    recyclerView.setLayoutManager(layoutM);
-
-
-
-
+    try {
+        listusuario = db.usuarioDAO().getAll();
+        supervisorAdapter = new HomeSupervisorAdapter(HomeSupervisor.this, listusuario);
+        RecyclerView.LayoutManager layoutManager =
+                new LinearLayoutManager((getApplicationContext()));
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(supervisorAdapter);
+    }
+    catch(Exception ex)
+    {
+        Toast.makeText(this, "Houve um erro na atualização da tela:  " + ex.getMessage() , Toast.LENGTH_SHORT).show();
+    }
 }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
