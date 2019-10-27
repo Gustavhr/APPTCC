@@ -6,9 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".Activity.HomeCadastroPaciente">
 
+
+<!--    Barra de ferramentas    -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/header"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:tooltipText="Coletas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Cadastro Paciente" />
+
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,109 +34,71 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:padding="15dp"
+            android:orientation="vertical">
 
+
+            <!--    NOME DO PACIENTE    -->
+           <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                app:counterEnabled="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nome do paciente"
+                    android:inputType="text"
+                    android:id="@+id/txt_nome"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--    CPF    -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                app:counterEnabled="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="CPF"
+                    android:inputType="number"
+                    android:id="@+id/txt_cpfpaciente"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--    RG    -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                app:counterEnabled="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="RG"
+                    android:inputType="number"
+                    android:id="@+id/txt_rgpaciente"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--        INICIO SEXO     -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtnomepaciente"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nome do paciente:"
-                        android:textSize="24dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:id="@+id/txt_nome"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtcpfpaciente"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="CPF"
-                        android:textSize="24sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:id="@+id/txt_cpfpaciente"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtRGpaciente"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="RG"
-                        android:textSize="24sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:id="@+id/txt_rgpaciente"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
+                android:orientation="vertical"
+                >
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -127,13 +106,14 @@
 
                     <TextView
                         android:id="@+id/txtsexo"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Sexo"
-                        android:textSize="24sp" />
+                        android:hint="Sexo"
+                        android:textSize="17sp" />
                 </LinearLayout>
 
+                <!-- RADIOGROUP -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -148,17 +128,37 @@
                             android:id="@+id/rbmasc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Masculino" />
+                            android:hint="Masculino" />
 
                         <RadioButton
                             android:id="@+id/rbfem"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Feminino" />
+                            android:hint="Feminino" />
                     </RadioGroup>
                 </LinearLayout>
             </LinearLayout>
+            <!--        FIM SEXO     -->
 
+            <!--    TELEFONE    -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                app:counterEnabled="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Telefone"
+                    android:inputType="number"
+                    android:id="@+id/txt_telefone"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--    ENDERECO    -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -169,94 +169,125 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/txttelefonepaciente"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Telefone"
-                        android:textSize="24sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:id="@+id/txt_telefone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/txtendereco"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Endereco"
-                        android:textSize="24dp" />
+                        android:hint="Endereco"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:outlineProvider="background">
 
-                    <EditText
-                        android:id="@+id/txt_end"
+                <!--    RUA/AVENIDA     -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="Rua / Avenida"
-                        android:inputType="textPersonName" />
+                        app:errorEnabled="true"
+                        app:counterEnabled="true"
+                        android:layout_centerHorizontal="true"
+                        >
 
-                    <EditText
-                        android:id="@+id/txt_num"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Rua / Avenida"
+                            android:inputType="textPersonName"
+                            android:id="@+id/txt_end"
+                            android:layout_centerHorizontal="true"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                <!--    NUMERO    -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="Número"
-                        android:inputType="textPersonName" />
+                        app:errorEnabled="true"
+                        app:counterEnabled="true"
+                        android:layout_centerHorizontal="true"
+                        >
 
-                    <EditText
-                        android:id="@+id/txt_bairro"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Número"
+                            android:inputType="textPersonName"
+                            android:id="@+id/txt_num"
+                            android:layout_centerHorizontal="true"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                <!--    BAIRRO      -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="Bairro"
-                        android:inputType="textPersonName" />
+                        app:errorEnabled="true"
+                        app:counterEnabled="true"
+                        android:layout_centerHorizontal="true"
+                        >
 
-                    <EditText
-                        android:id="@+id/txt_cidade"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Bairro"
+                            android:inputType="textPersonName"
+                            android:id="@+id/txt_bairro"
+                            android:layout_centerHorizontal="true"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                <!--    CIDADE      -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="Cidade"
-                        android:inputType="textPersonName" />
+                        app:errorEnabled="true"
+                        app:counterEnabled="true"
+                        android:layout_centerHorizontal="true"
+                        >
 
-                    <EditText
-                        android:id="@+id/txtcep"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Cidade"
+                            android:inputType="textPersonName"
+                            android:id="@+id/txt_cidade"
+                            android:layout_centerHorizontal="true"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                <!--    CEP     -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="CEP"
-                        android:inputType="textPersonName" />
+                        app:errorEnabled="true"
+                        app:counterEnabled="true"
+                        android:layout_centerHorizontal="true"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="CEP"
+                            android:inputType="textPersonName"
+                            android:id="@+id/txtcep"
+                            android:layout_centerHorizontal="true"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
                 </LinearLayout>
             </LinearLayout>
 
+            <!--    TEM PRESSÃO ALTA    -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -272,8 +303,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Tem pressão alta?"
-                        android:textSize="24sp" />
+                        android:hint="Tem pressão alta?"
+                        android:textSize="17dp"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -295,13 +326,13 @@
                                 android:id="@+id/rbs1"
                                 android:layout_width="101dp"
                                 android:layout_height="wrap_content"
-                                android:text="Sim" />
+                                android:hint="Sim" />
 
                             <RadioButton
                                 android:id="@+id/rbn1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Não" />
+                                android:hint="Não" />
                         </RadioGroup>
                     </LinearLayout>
 
@@ -317,7 +348,7 @@
                             android:ems="10"
                             android:enabled="false"
                             android:hint="Data"
-                            android:inputType="date"
+                            android:inputType="datetime"
                             android:textSize="14dp" />
                     </LinearLayout>
 
@@ -325,6 +356,7 @@
 
             </LinearLayout>
 
+            <!--    TEM DIABETES    -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -340,8 +372,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Tem diabetes?"
-                        android:textSize="24sp" />
+                        android:hint="Tem diabetes?"
+                        android:textSize="17sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -363,13 +395,13 @@
                                 android:id="@+id/rbs2"
                                 android:layout_width="101dp"
                                 android:layout_height="wrap_content"
-                                android:text="Sim" />
+                                android:hint="Sim" />
 
                             <RadioButton
                                 android:id="@+id/rbn2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Não" />
+                                android:hint="Não" />
                         </RadioGroup>
                     </LinearLayout>
 
@@ -385,7 +417,7 @@
                             android:ems="10"
                             android:enabled="false"
                             android:hint="Data"
-                            android:inputType="date"
+                            android:inputType="datetime"
                             android:textSize="14dp" />
                     </LinearLayout>
 
@@ -393,6 +425,7 @@
 
             </LinearLayout>
 
+            <!--    TEM COLESTEROL ALTO    -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -408,8 +441,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Tem colesterol alto?"
-                        android:textSize="24sp" />
+                        android:hint="Tem colesterol alto?"
+                        android:textSize="17dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -431,13 +464,13 @@
                                 android:id="@+id/rbs3"
                                 android:layout_width="101dp"
                                 android:layout_height="wrap_content"
-                                android:text="Sim" />
+                                android:hint="Sim" />
 
                             <RadioButton
                                 android:id="@+id/rbn3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Não" />
+                                android:hint="Não" />
                         </RadioGroup>
                     </LinearLayout>
 
@@ -461,6 +494,7 @@
 
             </LinearLayout>
 
+            <!--    FUMA OU JA FUMOU    -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -476,8 +510,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Fuma ou já fumou?"
-                        android:textSize="24sp" />
+                        android:hint="Fuma ou já fumou?"
+                        android:textSize="17dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -499,13 +533,13 @@
                                 android:id="@+id/rbs4"
                                 android:layout_width="101dp"
                                 android:layout_height="wrap_content"
-                                android:text="Sim" />
+                                android:hint="Sim" />
 
                             <RadioButton
                                 android:id="@+id/rbn4"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Não" />
+                                android:hint="Não" />
                         </RadioGroup>
                     </LinearLayout>
 
@@ -529,6 +563,7 @@
 
             </LinearLayout>
 
+            <!--    JA TEVE INFARTO MIOCARDICO    -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -544,8 +579,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Já teve infarto do miocárdio?"
-                        android:textSize="24sp" />
+                        android:hint="Já teve infarto do miocárdio?"
+                        android:textSize="17dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -567,13 +602,13 @@
                                 android:id="@+id/rbs5"
                                 android:layout_width="101dp"
                                 android:layout_height="wrap_content"
-                                android:text="Sim" />
+                                android:hint="Sim" />
 
                             <RadioButton
                                 android:id="@+id/rbn5"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Não" />
+                                android:hint="Não" />
                         </RadioGroup>
                     </LinearLayout>
 
@@ -597,6 +632,7 @@
 
             </LinearLayout>
 
+            <!--    JA TEVE DERRAME    -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -612,8 +648,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Ja teve derrame?"
-                        android:textSize="24sp" />
+                        android:hint="Ja teve derrame?"
+                        android:textSize="17dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -635,13 +671,13 @@
                                 android:id="@+id/rbs6"
                                 android:layout_width="101dp"
                                 android:layout_height="wrap_content"
-                                android:text="Sim" />
+                                android:hint="Sim" />
 
                             <RadioButton
                                 android:id="@+id/rbn6"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Não" />
+                                android:hint="Não" />
                         </RadioGroup>
                     </LinearLayout>
 
@@ -665,6 +701,7 @@
 
             </LinearLayout>
 
+            <!--    RONCA MUITO    -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -680,8 +717,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Ronca muito?"
-                        android:textSize="24sp" />
+                        android:hint="Ronca muito?"
+                        android:textSize="17dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -703,13 +740,13 @@
                                 android:id="@+id/rbs7"
                                 android:layout_width="101dp"
                                 android:layout_height="wrap_content"
-                                android:text="Sim" />
+                                android:hint="Sim" />
 
                             <RadioButton
                                 android:id="@+id/rbn7"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Não" />
+                                android:hint="Não" />
                         </RadioGroup>
                     </LinearLayout>
 
@@ -733,6 +770,7 @@
 
             </LinearLayout>
 
+            <!--    VOCE BEBE?    -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -748,8 +786,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Você bebe?"
-                        android:textSize="24sp" />
+                        android:hint="Você bebe?"
+                        android:textSize="17dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -771,13 +809,13 @@
                                 android:id="@+id/rbs8"
                                 android:layout_width="101dp"
                                 android:layout_height="wrap_content"
-                                android:text="Sim" />
+                                android:hint="Sim" />
 
                             <RadioButton
                                 android:id="@+id/rbn8"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Não" />
+                                android:hint="Não" />
                         </RadioGroup>
                     </LinearLayout>
 
@@ -801,6 +839,7 @@
 
             </LinearLayout>
 
+            <!--    ALGUEM NA FAMILIA......  -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -816,8 +855,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Alguém na família ja morreu com infarto ou derrame?"
-                        android:textSize="24sp" />
+                        android:hint="Alguém na família ja morreu com infarto ou derrame?"
+                        android:textSize="17dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -839,13 +878,13 @@
                                 android:id="@+id/rbs9"
                                 android:layout_width="101dp"
                                 android:layout_height="wrap_content"
-                                android:text="Sim" />
+                                android:hint="Sim" />
 
                             <RadioButton
                                 android:id="@+id/rbn9"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Não" />
+                                android:hint="Não" />
                         </RadioGroup>
                     </LinearLayout>
 
@@ -869,6 +908,7 @@
 
             </LinearLayout>
 
+            <!--    VOCE USA REMEDIOS/MEDICACOES REGURLAMENTE?   -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -884,8 +924,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Você esteve internado nos últimos 12 meses?"
-                        android:textSize="24sp" />
+                        android:hint="Você esteve internado nos últimos 12 meses?"
+                        android:textSize="17dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -907,13 +947,13 @@
                                 android:id="@+id/rbs10"
                                 android:layout_width="101dp"
                                 android:layout_height="wrap_content"
-                                android:text="Sim" />
+                                android:hint="Sim" />
 
                             <RadioButton
                                 android:id="@+id/rbn10"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Não" />
+                                android:hint="Não" />
                         </RadioGroup>
                     </LinearLayout>
 
@@ -937,6 +977,7 @@
 
             </LinearLayout>
 
+            <!-- CONSULTOU COM MÉDICOS OU UBS NOS ULTIMOS 12 MESES-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -952,8 +993,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Consultou com médicos ou UBS nos últimos 12 meses?"
-                        android:textSize="24sp" />
+                        android:hint="Consultou com médicos ou UBS nos últimos 12 meses?"
+                        android:textSize="17dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -975,13 +1016,13 @@
                                 android:id="@+id/rbs11"
                                 android:layout_width="101dp"
                                 android:layout_height="wrap_content"
-                                android:text="Sim" />
+                                android:hint="Sim" />
 
                             <RadioButton
                                 android:id="@+id/rbn11"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Não" />
+                                android:hint="Não" />
                         </RadioGroup>
                     </LinearLayout>
 
@@ -1005,6 +1046,7 @@
 
             </LinearLayout>
 
+            <!-- VOCE USA REMÉDIOS/ MEDICACOES REGULARMENTE?-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -1020,8 +1062,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Você usa remédios/ medicações regularmente?"
-                        android:textSize="24sp" />
+                        android:hint="Você usa remédios/ medicações regularmente?"
+                        android:textSize="17dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -1043,13 +1085,13 @@
                                 android:id="@+id/rbs12"
                                 android:layout_width="101dp"
                                 android:layout_height="wrap_content"
-                                android:text="Sim" />
+                                android:hint="Sim" />
 
                             <RadioButton
                                 android:id="@+id/rbn12"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Não" />
+                                android:hint="Não" />
                         </RadioGroup>
                     </LinearLayout>
 
@@ -1089,7 +1131,7 @@
 
             </LinearLayout>
 
-        </LinearLayout>
+          </LinearLayout>
     </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

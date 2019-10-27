@@ -8,34 +8,36 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/homecoletortoolbar"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@drawable/header"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Cadastro de pacientes"/>
+        app:title="Cadastro de pacientes" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/homecoletorrecycle"
-        android:layout_width="410dp"
-        android:layout_height="651dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homecoletortoolbar" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        app:layout_constraintStart_toStartOf="@+id/homecoletortoolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="8dp"/>
 
+    <!--    Botão Float +   -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/homecoletorfloating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

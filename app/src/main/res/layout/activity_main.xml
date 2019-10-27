@@ -1,77 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.MainActivity">
 
-    <Button
-        android:id="@+id/btnmainlogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:text="Entrar"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar4"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/header"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnermain" />
-
-    <EditText
-        android:id="@+id/txt_mainlogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="51dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txtmainlogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="56dp"
-        android:text="Login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/txt_mainsenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/txt_mainlogin"
-        app:layout_constraintTop_toBottomOf="@+id/txt_mainlogin" />
+    <!--    Logotipo    -->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="205dp"
+        android:layout_height="138dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/iconepng"
+        android:layout_marginTop="16dp"
+        />
 
-    <TextView
-        android:id="@+id/txtmainsenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="Senha"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_mainsenha"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txt_mainsenha" />
+    <!--    Corpo   -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/toolbar4"
+        android:padding="30dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center_horizontal"
+        >
 
-    <Spinner
-        android:id="@+id/spinnermain"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_mainsenha" />
+        <!--    Login   -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:counterEnabled="true"
+            android:layout_centerHorizontal="true"
+            >
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="503dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Login"
+                android:inputType="text"
+                android:id="@+id/txt_mainlogin"
+                android:layout_centerHorizontal="true"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--    Senha   -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true"
+            android:layout_centerHorizontal="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Senha"
+                android:inputType="textWebPassword"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/txt_mainsenha"/>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></ScrollView>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    <!--    Spinner     -->
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:layout_centerHorizontal="true"
+            android:id="@+id/spinnermain"
+            android:layout_width="256dp"
+            android:layout_height="23dp"
+            tools:layout_editor_absoluteX="52dp"
+            tools:layout_editor_absoluteY="112dp"
+            style="@style/Widget.AppCompat.Light.DropDownItem.Spinner"
+            android:textAlignment="center"
+            />
+    <!--    Botão doido do Gustavo -->
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="136dp"
+            tools:layout_editor_absoluteY="50dp" />
+
+    <!--    Botão Entrar    -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnmainlogin"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Entrar"
+            android:background="@drawable/header"
+            android:textColor="#f0f0f0"
+            android:layout_marginTop="30dp"
+            tools:layout_editor_absoluteX="136dp"/>
+
+<!--        <Button-->
+<!--            android:id="@+id/btnmainlogin"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Entrar"-->
+<!--            android:background="@drawable/header"-->
+<!--            android:textColor="#f0f0f0"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            tools:layout_editor_absoluteX="136dp" />-->
+
+    </LinearLayout>
+</RelativeLayout>
+
