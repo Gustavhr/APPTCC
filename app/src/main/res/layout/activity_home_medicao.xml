@@ -6,11 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".Activity.HomeMedicao">
 
+    <!--    BARRA DE FERRAMENTAS    -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/homemedicaotoolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@drawable/header"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,6 +39,7 @@
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <Button
+        android:paddingTop="10dp"
         android:id="@+id/btneditarcadastropaciente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

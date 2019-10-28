@@ -12,7 +12,7 @@ import java.util.Date;
 import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(tableName = "MEDICAO")
-//@Entity(tableName = "MEDICAO",foreignKeys = @ForeignKey(entity = Paciente.class,
+//@Entity(foreignKeys = @ForeignKey(entity = Paciente.class,
 //        parentColumns = "id",
 //        childColumns = "idpaciente",
 //        onDelete = CASCADE))
@@ -37,6 +37,8 @@ public class Medicao implements Serializable {
     @ColumnInfo(name = "comentario")
     String comentario;
 
+    @Ignore
+    Integer idusuario;
 
     @Ignore
     Paciente paciente;
