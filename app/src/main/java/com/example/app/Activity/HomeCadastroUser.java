@@ -40,11 +40,11 @@ public class HomeCadastroUser extends AppCompatActivity {
             txt_username = (EditText) findViewById(R.id.txt_userlogin);
             txt_senha = (EditText) findViewById(R.id.txt_usersenha);
             txt_senha2 = (EditText) findViewById(R.id.txt_usersenha2);
-            floating = findViewById(R.id.floatingcadastrouser);
+            bt_registrar = findViewById(R.id.floatingcadastrouser);
             txt_nome = (EditText) findViewById(R.id.txt_usernome);
             txt_email = (EditText) findViewById(R.id.txt_useremail);
             user.setAdapter(adapter);
-            floating.setOnClickListener(new View.OnClickListener() {
+            bt_registrar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 

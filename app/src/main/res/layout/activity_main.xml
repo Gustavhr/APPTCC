@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Activity.MainActivity">
 
+    <!--    Barra de ferramentas    -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar4"
         android:layout_width="match_parent"
@@ -77,14 +78,6 @@
                 android:layout_centerHorizontal="true"
                 android:id="@+id/txt_mainsenha"/>
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></ScrollView>
-
         </com.google.android.material.textfield.TextInputLayout>
 
     <!--    Spinner     -->
@@ -98,6 +91,7 @@
             style="@style/Widget.AppCompat.Light.DropDownItem.Spinner"
             android:textAlignment="center"
             />
+
     <!--    Botão doido do Gustavo -->
         <Button
             android:id="@+id/button"
@@ -118,17 +112,6 @@
             android:textColor="#f0f0f0"
             android:layout_marginTop="30dp"
             tools:layout_editor_absoluteX="136dp"/>
-
-<!--        <Button-->
-<!--            android:id="@+id/btnmainlogin"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Entrar"-->
-<!--            android:background="@drawable/header"-->
-<!--            android:textColor="#f0f0f0"-->
-<!--            android:layout_marginTop="30dp"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            tools:layout_editor_absoluteX="136dp" />-->
 
     </LinearLayout>
 </RelativeLayout>
