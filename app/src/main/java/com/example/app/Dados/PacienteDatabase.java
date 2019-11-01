@@ -25,7 +25,7 @@ public abstract class PacienteDatabase extends RoomDatabase{
                 {
                     INSTANCE = Room.databaseBuilder(
                             context.getApplicationContext(),
-                            PacienteDatabase.class,"PACIENTE.db")
+                            PacienteDatabase.class,"paciente.db")
                             .allowMainThreadQueries()
                             .build();
                 }

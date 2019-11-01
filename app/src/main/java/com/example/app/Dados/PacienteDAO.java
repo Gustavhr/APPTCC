@@ -24,15 +24,17 @@ public interface PacienteDAO {
     @Delete
     void delete (Paciente paciente);
 
-    @Query("SELECT * FROM PACIENTE")
+    @Query("SELECT * FROM paciente")
     List<Paciente> getAll();
 
 //    @Query("SELECT COUNT(*) FROM USER WHERE login =  :usuario AND senha = :senha AND tipo = :tipo ")
 //    int count(String usuario,String senha ,String tipo);
 //
 //
-    @Query("SELECT id FROM PACIENTE WHERE nome like :name ")
+    @Query("SELECT id FROM paciente WHERE nome like :name ")
     int findID(String name);
 
+    @Query("SELECT * FROM paciente WHERE nome like '%' ||:nome|| '%'")
+    List<Paciente> findByNome(String nome);
 
 }
