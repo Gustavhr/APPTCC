@@ -18,6 +18,8 @@ import com.example.app.Model.Paciente;
 import com.example.app.Model.Resposta;
 import com.example.app.Model.Usuario;
 import com.example.app.R;
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Calendar;
@@ -78,8 +80,19 @@ public class HomeCadastroPaciente extends AppCompatActivity {
                 }
             });
 
+            //CRIANDO MASCARA DE TESTE
+//            SimpleMaskFormatter smf = new SimpleMaskFormatter("NNN.NNN.NNN-NN");
+//            MaskTextWatcher mtw = new MaskTextWatcher(txtcpf, smf);
+//            txtcpf.addTextChangedListener(mtw);
+//            smf = new SimpleMaskFormatter("(NN)NNNNN-NNNN");
+//            mtw = new MaskTextWatcher(txttelefone, smf);
+//            txttelefone.addTextChangedListener(mtw);
 
-// DATAS
+
+
+            //FIM MASCARA
+
+            // DATAS
             date1 = findViewById(R.id.data1);
             date2 = findViewById(R.id.data2);
             date3 = findViewById(R.id.data3);
@@ -92,6 +105,8 @@ public class HomeCadastroPaciente extends AppCompatActivity {
             date10 = findViewById(R.id.data10);
             date11 = findViewById(R.id.data11);
             date12 = findViewById(R.id.data12);
+
+
 // RADIOS
             rgsexo = findViewById(R.id.rgsexo);
             rbmas = findViewById(R.id.rbmasc);
@@ -381,6 +396,42 @@ public class HomeCadastroPaciente extends AppCompatActivity {
                     }
                 }
             }
+
+            // INICIO MASCARAS
+            SimpleMaskFormatter smf = new SimpleMaskFormatter("NNN.NNN.NNN-NN");
+            MaskTextWatcher mtw = new MaskTextWatcher(txtcpf, smf);
+            txtcpf.addTextChangedListener(mtw);
+            smf = new SimpleMaskFormatter("(NN)NNNNN-NNNN");
+            mtw = new MaskTextWatcher(txttelefone, smf);
+            txttelefone.addTextChangedListener(mtw);
+            smf = new SimpleMaskFormatter("NN/NN/NNNN");
+            mtw = new MaskTextWatcher(date1, smf);
+            date1.addTextChangedListener(mtw);
+            mtw = new MaskTextWatcher(date2, smf);
+            date2.addTextChangedListener(mtw);
+            mtw = new MaskTextWatcher(date3, smf);
+            date3.addTextChangedListener(mtw);
+            mtw = new MaskTextWatcher(date4, smf);
+            date4.addTextChangedListener(mtw);
+            mtw = new MaskTextWatcher(date5, smf);
+            date5.addTextChangedListener(mtw);
+            mtw = new MaskTextWatcher(date6, smf);
+            date6.addTextChangedListener(mtw);
+            mtw = new MaskTextWatcher(date7, smf);
+            date7.addTextChangedListener(mtw);
+            mtw = new MaskTextWatcher(date8, smf);
+            date8.addTextChangedListener(mtw);
+            mtw = new MaskTextWatcher(date9, smf);
+            date9.addTextChangedListener(mtw);
+            mtw = new MaskTextWatcher(date10, smf);
+            date10.addTextChangedListener(mtw);
+            mtw = new MaskTextWatcher(date11, smf);
+            date11.addTextChangedListener(mtw);
+            mtw = new MaskTextWatcher(date12, smf);
+            date12.addTextChangedListener(mtw);
+            smf = new SimpleMaskFormatter("NNNNN-NNN");
+            mtw = new MaskTextWatcher(txtcep, smf);
+            txtcep.addTextChangedListener(mtw);
         }
         catch (Exception ex)
         {

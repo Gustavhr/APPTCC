@@ -55,7 +55,7 @@
                 android:id="@+id/txt_userlogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Login"
+                android:hint="Usuário"
                 android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -73,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Senha"
-                android:inputType="text" />
+                android:inputType="textWebPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Confirme a senha"
-                android:inputType="text" />
+                android:inputType="textWebPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

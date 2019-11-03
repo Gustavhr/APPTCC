@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.example.app.Dados.UserDAO;
 import com.example.app.Dados.UsuarioDatabase;
 import com.example.app.R;
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
 public class MainActivity extends Activity {
 
@@ -24,6 +26,7 @@ public class MainActivity extends Activity {
     UserDAO db;
     UsuarioDatabase userdb;
     public static final String PREFERENCES = "Config";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +52,11 @@ public class MainActivity extends Activity {
                     startActivity(i);
 
                 }
-            });
+            }
+
+
+
+            );
 
 
             btnregistrar.setOnClickListener(new View.OnClickListener() {

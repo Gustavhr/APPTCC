@@ -88,7 +88,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="RG"
-                    android:inputType="number"
+                    android:inputType="text"
+                    android:maxLength="14"
                     android:id="@+id/txt_rgpaciente"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -278,7 +279,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="CEP"
-                            android:inputType="textPersonName"
+                            android:inputType="number"
                             android:id="@+id/txtcep"
                             android:layout_centerHorizontal="true"/>
 
@@ -348,7 +349,7 @@
                             android:ems="10"
                             android:enabled="false"
                             android:hint="Data"
-                            android:inputType="datetime"
+                            android:inputType="number"
                             android:textSize="14dp" />
                     </LinearLayout>
 
@@ -417,7 +418,7 @@
                             android:ems="10"
                             android:enabled="false"
                             android:hint="Data"
-                            android:inputType="datetime"
+                            android:inputType="date"
                             android:textSize="14dp" />
                     </LinearLayout>
 
