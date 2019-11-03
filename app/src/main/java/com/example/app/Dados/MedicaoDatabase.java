@@ -10,7 +10,7 @@ import com.example.app.Model.Medicao;
 import com.example.app.Model.Paciente;
 import com.example.app.Model.Resposta;
 
-@Database(entities = {Medicao.class},version = 1,exportSchema = false )
+@Database(entities = {Medicao.class,Paciente.class},version = 1,exportSchema = false )
 public abstract class MedicaoDatabase extends RoomDatabase {
     public abstract MedicaoDAO medicaoDAO();
     private static MedicaoDatabase INSTANCE;

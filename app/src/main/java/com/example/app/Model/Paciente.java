@@ -11,13 +11,14 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-@Entity(tableName="PACIENTE")
+@Entity(tableName="paciente")
 
 public class Paciente implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     Integer id;
 
+    @Ignore
     Integer idendereco;
 
 
