@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 import com.example.app.Model.Endereco;
 import com.example.app.Model.Paciente;
 
-@Database(entities = {Endereco.class},version = 1,exportSchema = false )
+@Database(entities = {Endereco.class,Paciente.class},version = 1,exportSchema = false )
 public abstract class EnderecoDatabase extends RoomDatabase {
 
     public abstract EnderecoDAO enderecoDAO();

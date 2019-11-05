@@ -3,18 +3,26 @@ package com.example.app.Model;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.List;
 
-@Entity(tableName="ENDERECO")
+import static androidx.room.ForeignKey.CASCADE;
+
+//@Entity(tableName="ENDERECO")
+@Entity(tableName="ENDERECO",foreignKeys = @ForeignKey(entity = Paciente.class,
+        parentColumns = "id",
+        childColumns = "id",
+        onDelete = CASCADE))
 public class Endereco {
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = false)
     Integer id;
 
-    @ColumnInfo(name = "idpaciente")
+    //@ColumnInfo(name = "idpaciente")
+    @Ignore
     Integer idpaciente;
 
     @NonNull

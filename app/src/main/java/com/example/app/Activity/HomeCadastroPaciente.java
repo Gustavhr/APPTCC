@@ -40,7 +40,7 @@ public class HomeCadastroPaciente extends AppCompatActivity {
     Boolean [] respotas = new Boolean[12];
     String [] datasiniciais = new String[12];
     EditText txtnome,txttelefone,txtrua,txtnumero,txtbairro,txtcidade,txtcep,txtcpf,txtrg;
-    Character sexo;
+    Character sexo = ' ';
 
 
     // OBJETOS
@@ -750,6 +750,9 @@ public class HomeCadastroPaciente extends AppCompatActivity {
                     }
                 }
                 count++;
+            }
+            if(sexo.equals(' ')){
+                valida=false;
             }
             return valida;
         }
