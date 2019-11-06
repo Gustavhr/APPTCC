@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -19,6 +21,7 @@ import com.example.app.Model.Medicao;
 import com.example.app.Model.Paciente;
 import com.example.app.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +38,7 @@ public class HomeMedicao extends AppCompatActivity {
     Button editarcadastro;
     PacienteDatabase pacientedb;
     Integer ID;
+    private MaterialSearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +52,7 @@ public class HomeMedicao extends AppCompatActivity {
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             recyclerView = findViewById(R.id.homemedicaorecycle);
-            editarcadastro = (Button) findViewById(R.id.btneditarcadastropaciente);
+
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
@@ -67,22 +71,30 @@ public class HomeMedicao extends AppCompatActivity {
             pacienteselecionado = (Paciente) getIntent().getSerializableExtra("usuario");
 
             ID = pacientedb.pacienteDAO().findID(pacienteselecionado.getNome());
-            editarcadastro.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
 
-                    Intent intent = new Intent(HomeMedicao.this, HomeCadastroPaciente.class);
-                    intent.putExtra("usuariocadastrado", pacienteselecionado);
-                    HomeMedicao.this.startActivity(intent);
+            searchView = findViewById(R.id.searchViewIdcoletor);
 
-                }
-            });
 
             atualizaTela();
         }
         catch(Exception ex)
         {
             Toast.makeText(this, "Houve um erro na criação da página:  " + ex.getMessage() , Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public void pesquisaMedicao(String pacientenome)
+    {
+        try {
+            listmedicao = medicaodb.medicaoDAO().findByData(pacientenome);
+            homeMedicaoAdapter = new HomeMedicaoAdapter(HomeMedicao.this, listmedicao);
+            recyclerView.setAdapter(homeMedicaoAdapter);
+            homeMedicaoAdapter.notifyDataSetChanged();
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(this, "Houve um erro na pesquisa:  " + ex.getMessage() , Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -101,6 +113,14 @@ public class HomeMedicao extends AppCompatActivity {
     catch(Exception ex){
     Toast.makeText(this, "Houve um erro na atualização da tela:  " + ex.getMessage() , Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menupesquisa, menu);
+        MenuItem menuItem = menu.findItem(R.id.mnpesquisar);
+        searchView.setMenuItem(menuItem);
+        return true;
     }
 
     @Override

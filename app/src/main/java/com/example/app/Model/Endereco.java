@@ -14,15 +14,14 @@ import static androidx.room.ForeignKey.CASCADE;
 //@Entity(tableName="ENDERECO")
 @Entity(tableName="ENDERECO",foreignKeys = @ForeignKey(entity = Paciente.class,
         parentColumns = "id",
-        childColumns = "id",
+        childColumns = "idpaciente",
         onDelete = CASCADE))
 public class Endereco {
 
     @PrimaryKey(autoGenerate = false)
     Integer id;
 
-    //@ColumnInfo(name = "idpaciente")
-    @Ignore
+    @ColumnInfo(name = "idpaciente")
     Integer idpaciente;
 
     @NonNull

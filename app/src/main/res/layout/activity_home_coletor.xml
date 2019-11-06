@@ -6,26 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".Activity.HomeColetor">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/homecoletortoolbar"
+
+    <FrameLayout
+        android:id="@+id/toolbar_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/header"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="Cadastro de pacientes" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/homecoletortoolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/header"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Cadastro de pacientes" />
+
+        <com.miguelcatalan.materialsearchview.MaterialSearchView
+            android:id="@+id/searchViewIdcoletor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/homecoletorrecycle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
-        app:layout_constraintStart_toStartOf="@+id/homecoletortoolbar"
-        app:layout_constraintTop_toTopOf="parent"
-        android:padding="8dp"/>
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="84dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--    Botão Float +   -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -41,3 +59,6 @@
         style="@style/Widget.MaterialComponents.FloatingActionButton"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--    app:layout_constraintStart_toStartOf="@+id/homecoletortoolbar"-->

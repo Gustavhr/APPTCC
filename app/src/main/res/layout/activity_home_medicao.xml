@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".Activity.HomeMedicao">
 
+
+    <FrameLayout
+        android:id="@+id/toolbar_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
     <!--    BARRA DE FERRAMENTAS    -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/homemedicaotoolbar"
@@ -19,13 +27,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:title="Medições" />
 
+        <com.miguelcatalan.materialsearchview.MaterialSearchView
+            android:id="@+id/searchViewIdcoletor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/homemedicaorecycle"
-        android:layout_width="402dp"
-        android:layout_height="546dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="84dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar_container" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/homemedicaofloating"
@@ -38,14 +54,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
 
-    <Button
-        android:paddingTop="10dp"
-        android:id="@+id/btneditarcadastropaciente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Editar cadastro do paciente"
-        app:layout_constraintBottom_toTopOf="@+id/homemedicaorecycle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homemedicaotoolbar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,7 +15,7 @@ import java.util.List;
 
 public class Paciente implements Serializable {
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = false)
     Integer id;
 
     @Ignore

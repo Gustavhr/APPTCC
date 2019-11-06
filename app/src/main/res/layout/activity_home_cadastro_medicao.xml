@@ -19,30 +19,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:title="Cadastro Medicao" />
 
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/floatingcadastromedicao"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SALVAR"
+        android:textColor="#f0f0f0"
+        app:icon="@drawable/ic_action_action_search"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar3"
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            />
-    </ScrollView>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="60dp"
         android:paddingHorizontal="15dp"
-        >
+        android:paddingTop="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar3"
+        app:layout_constraintVertical_bias="0.12">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -137,22 +136,20 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        <!--    PA Sist     -->
+            <!--    PA Sist     -->
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:errorEnabled="true"
                 app:counterEnabled="true"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                >
+                app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txt_pasist"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="PA Sist."
-                    android:inputType="text"
-                    android:id="@+id/txt_pasist"
-                    />
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -169,20 +166,18 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:errorEnabled="true"
                     app:counterEnabled="true"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    >
+                    app:errorEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_padist"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="PA Dist."
-                        android:inputType="text"
-                        android:id="@+id/txt_padist"
-                        />
+                        android:inputType="text" />
 
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -204,8 +199,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-            </LinearLayout>
+                android:orientation="vertical"></LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -213,27 +207,22 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:errorEnabled="true"
                     app:counterEnabled="true"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    >
+                    app:errorEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_fc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="FC"
-                        android:inputType="text"
-                        android:id="@+id/txt_fc"
-                        />
+                        android:inputType="text" />
 
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
         </LinearLayout>
-
-
-
 
 
         <LinearLayout
@@ -244,8 +233,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-            </LinearLayout>
+                android:orientation="vertical"></LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -253,35 +241,24 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:errorEnabled="true"
                     app:counterEnabled="true"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    >
+                    app:errorEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_comentario"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Comentário"
-                        android:inputType="text"
-                        android:id="@+id/txt_comentario"
-                        />
+                        android:inputType="text" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
         </LinearLayout>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingcadastromedicao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="60dp"
-            android:layout_marginBottom="60dp"
-            android:clickable="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@android:drawable/ic_input_add" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

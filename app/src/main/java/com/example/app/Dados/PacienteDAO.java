@@ -37,4 +37,6 @@ public interface PacienteDAO {
     @Query("SELECT * FROM paciente WHERE nome like '%' ||:nome|| '%'")
     List<Paciente> findByNome(String nome);
 
+
+
 }

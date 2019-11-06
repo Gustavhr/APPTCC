@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -24,6 +25,7 @@ public class HomeCadastroMedicao extends AppCompatActivity {
     Medicao medicaoselecionada;
     Integer IDpaciente;
     FloatingActionButton floating;
+    Button bt_registrar;
 
     MedicaoDatabase db;
 
@@ -44,9 +46,9 @@ public class HomeCadastroMedicao extends AppCompatActivity {
             rbrn = findViewById(R.id.rbrotinanao);
             rbps = findViewById(R.id.rbpedidosim);
             rbpn = findViewById(R.id.rbpedidonao);
-            floating = findViewById(R.id.floatingcadastromedicao);
+            bt_registrar = findViewById(R.id.floatingcadastromedicao);
 
-            floating.setOnClickListener(new View.OnClickListener() {
+            bt_registrar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 

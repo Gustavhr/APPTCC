@@ -22,6 +22,7 @@ import com.example.app.Model.Paciente;
 import com.example.app.Model.Usuario;
 import com.example.app.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +36,7 @@ public class HomeColetor extends AppCompatActivity {
     PacienteDatabase db;
     HomeColetorAdapter homeColetorAdapter;
     List<Paciente> listpaciente = new ArrayList<>();
-
+    private MaterialSearchView searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
@@ -50,7 +51,23 @@ public class HomeColetor extends AppCompatActivity {
             recyclerView = findViewById(R.id.homecoletorrecycle);
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            searchView = findViewById(R.id.searchViewIdcoletor);
+
+            searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    pesquisaPaciente(newText);
+                    return true;
+                }
+            });
+
             atualizaTela();
+
 
             floating.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -64,6 +81,22 @@ public class HomeColetor extends AppCompatActivity {
                 Toast.makeText(HomeColetor.this, "Houve um erro na criação da página:  " + ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void pesquisaPaciente(String pacientenome)
+    {
+        try {
+            listpaciente = db.pacienteDAO().findByNome(pacientenome);
+            homeColetorAdapter = new HomeColetorAdapter(HomeColetor.this, listpaciente);
+            recyclerView.setAdapter(homeColetorAdapter);
+            homeColetorAdapter.notifyDataSetChanged();
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(this, "Houve um erro na pesquisa:  " + ex.getMessage() , Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
     public void atualizaTela()
     {
         try {
@@ -80,24 +113,14 @@ public class HomeColetor extends AppCompatActivity {
         }
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.homesupervisormenu, menu);
-//        return true;
-//    }
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        switch(item.getItemId()){
-//            case R.id.itemcoleta:
-//                Toast.makeText(this, "Clicou coleta", Toast.LENGTH_SHORT).show();
-//
-//                break;
-//            case  android.R.id.home:
-//                Toast.makeText(this, "Clicou voltar", Toast.LENGTH_SHORT).show();
-//                break;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menupesquisa, menu);
+        MenuItem menuItem = menu.findItem(R.id.mnpesquisar);
+        searchView.setMenuItem(menuItem);
+        return true;
+    }
+
 
     @Override
     protected void onStart() {
