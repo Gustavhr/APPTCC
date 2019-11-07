@@ -11,11 +11,11 @@ import java.util.Date;
 
 import static androidx.room.ForeignKey.CASCADE;
 
-//@Entity(tableName = "MEDICAO")
-@Entity(tableName = "MEDICAO",foreignKeys = @ForeignKey(entity = Paciente.class,
-        parentColumns = "id",
-        childColumns = "idpaciente",
-        onDelete = CASCADE))
+@Entity(tableName = "MEDICAO")
+//@Entity(tableName = "MEDICAO",foreignKeys = @ForeignKey(entity = Paciente.class,
+//        parentColumns = "id",
+//        childColumns = "idpaciente",
+//        onDelete = CASCADE))
 
 public class Medicao implements Serializable {
 

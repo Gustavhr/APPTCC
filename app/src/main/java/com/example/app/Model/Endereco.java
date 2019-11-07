@@ -11,11 +11,11 @@ import java.util.List;
 
 import static androidx.room.ForeignKey.CASCADE;
 
-//@Entity(tableName="ENDERECO")
-@Entity(tableName="ENDERECO",foreignKeys = @ForeignKey(entity = Paciente.class,
-        parentColumns = "id",
-        childColumns = "idpaciente",
-        onDelete = CASCADE))
+@Entity(tableName="ENDERECO")
+//@Entity(tableName="ENDERECO",foreignKeys = @ForeignKey(entity = Paciente.class,
+//        parentColumns = "id",
+//        childColumns = "idpaciente",
+//        onDelete = CASCADE))
 public class Endereco {
 
     @PrimaryKey(autoGenerate = false)

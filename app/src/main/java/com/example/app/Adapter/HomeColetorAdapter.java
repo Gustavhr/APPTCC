@@ -23,6 +23,7 @@ import com.example.app.Dados.UsuarioDatabase;
 import com.example.app.Model.Paciente;
 import com.example.app.Model.Usuario;
 import com.example.app.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -51,16 +52,16 @@ public class HomeColetorAdapter  extends RecyclerView.Adapter<HomeColetorAdapter
         final Paciente paciente  = lista.get(position);
         viewH.txtnome.setText(paciente.getNome());
 
+        viewH.floating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Paciente pacienteselecionado = lista.get(position);
+                Intent intent = new Intent(context, HomeCadastroPaciente.class);
+                intent.putExtra("usuariocadastrado", pacienteselecionado);
+                context.startActivity(intent);
+            }
+        });
 
-
-
-//        viewH.txtnome.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Paciente pacienteselecionado = lista.get(position);
-//                Intent intent = new Intent(context, HomeCadastroPaciente.class);
-//                intent.putExtra("usuario",pacienteselecionado);
-//                context.startActivity(intent);
         viewH.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -110,14 +111,14 @@ public class HomeColetorAdapter  extends RecyclerView.Adapter<HomeColetorAdapter
     public class ColetorViewHolder extends RecyclerView.ViewHolder{
 
         TextView txtnome,txttelefone;
-
+        FloatingActionButton floating;
         public ColetorViewHolder(View itemView)
         {
             super(itemView);
 
 
             txtnome = itemView.findViewById(R.id.cdcoletornome);
-
+            floating = itemView.findViewById(R.id.floatingeditarmedicao);
 
 
         }

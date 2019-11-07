@@ -34,6 +34,8 @@ public interface MedicaoDAO {
 //    int count(String usuario,String senha ,String tipo);
 //
 //
-    @Query("SELECT * FROM MEDICAO WHERE Data like '%' || :data || '%'")
+    @Query("SELECT * FROM MEDICAO WHERE Data like '%' ||:data|| '%'")
     List<Medicao> findByData(String data);
+
+
 }

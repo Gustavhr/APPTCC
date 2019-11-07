@@ -16,6 +16,11 @@ import com.example.app.Model.Medicao;
 import com.example.app.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class HomeCadastroMedicao extends AppCompatActivity {
 
     RadioGroup rgrotina,rgpedido;
@@ -26,6 +31,8 @@ public class HomeCadastroMedicao extends AppCompatActivity {
     Integer IDpaciente;
     FloatingActionButton floating;
     Button bt_registrar;
+    String data = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
 
     MedicaoDatabase db;
 
@@ -39,6 +46,7 @@ public class HomeCadastroMedicao extends AppCompatActivity {
             txtpasist = (EditText) findViewById(R.id.txt_pasist);
             txtfc = (EditText) findViewById(R.id.txt_fc);
             txtcoment = (EditText) findViewById(R.id.txt_comentario);
+
             db = MedicaoDatabase.getDatabase(HomeCadastroMedicao.this);
             rgrotina = findViewById(R.id.rgrotina);
             rgpedido = findViewById(R.id.rgpedido);
@@ -143,6 +151,7 @@ public class HomeCadastroMedicao extends AppCompatActivity {
                 medicao.setPedido(pedido);
                 medicao.setRotina(rotina);
                 medicao.setIdpaciente(IDpaciente);
+                medicao.setDatahora(data);
                 db.medicaoDAO().insert(medicao);
 
                 Toast.makeText(this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
@@ -192,4 +201,6 @@ public class HomeCadastroMedicao extends AppCompatActivity {
             return false;
         }
     }
+
+
 }

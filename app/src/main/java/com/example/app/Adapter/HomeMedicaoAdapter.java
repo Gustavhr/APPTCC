@@ -22,6 +22,7 @@ import com.example.app.Dados.PacienteDatabase;
 import com.example.app.Model.Medicao;
 import com.example.app.Model.Paciente;
 import com.example.app.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -46,14 +47,14 @@ public class HomeMedicaoAdapter extends RecyclerView.Adapter<HomeMedicaoAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MedicaoViewHolder viewH, final int position)
+    public void onBindViewHolder(@NonNull final MedicaoViewHolder viewH, final int position)
     {
         final Medicao medicao  = lista.get(position);
         viewH.txtpasist.setText(String.valueOf(medicao.getPasist()));
         viewH.txtpadist.setText(String.valueOf(medicao.getPadist()));
         viewH.txtfc.setText(String.valueOf(medicao.getFC()));
         viewH.txtcoment.setText(medicao.getComentario());
-
+        viewH.txtdata.setText(medicao.getDatahora());
 
 
 
@@ -64,8 +65,12 @@ public class HomeMedicaoAdapter extends RecyclerView.Adapter<HomeMedicaoAdapter.
                 Intent intent = new Intent(context, HomeCadastroMedicao.class);
                 intent.putExtra("medicao",medicaoselecionada);
                 context.startActivity(intent);
+
+
             }
         });
+
+
 
 
         viewH.itemView.setOnLongClickListener(new View.OnLongClickListener(){
@@ -105,7 +110,8 @@ public class HomeMedicaoAdapter extends RecyclerView.Adapter<HomeMedicaoAdapter.
 
     public class MedicaoViewHolder extends RecyclerView.ViewHolder{
 
-        TextView txtpasist,txtpadist,txtfc,txtcoment;
+        TextView txtpasist,txtpadist,txtfc,txtcoment,txtdata;
+
 
         public MedicaoViewHolder(View itemView)
         {
@@ -116,7 +122,7 @@ public class HomeMedicaoAdapter extends RecyclerView.Adapter<HomeMedicaoAdapter.
             txtpadist = itemView.findViewById(R.id.cdpadist);
             txtfc = itemView.findViewById(R.id.cdfc);
             txtcoment = itemView.findViewById(R.id.cdcoment);
-
+            txtdata = itemView.findViewById(R.id.cddat);
 
 
         }

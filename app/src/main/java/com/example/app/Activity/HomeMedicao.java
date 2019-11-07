@@ -75,6 +75,20 @@ public class HomeMedicao extends AppCompatActivity {
             searchView = findViewById(R.id.searchViewIdcoletor);
 
 
+            searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    pesquisaMedicao(newText);
+                    return true;
+                }
+            });
+
+
             atualizaTela();
         }
         catch(Exception ex)
@@ -83,6 +97,10 @@ public class HomeMedicao extends AppCompatActivity {
         }
 
     }
+
+
+
+
 
     public void pesquisaMedicao(String pacientenome)
     {
