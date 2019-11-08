@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -83,12 +83,25 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--    Spinner     -->
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tipo de Usuário"
+                android:textAlignment="center"
+                android:textColor="#0A0000" />
+
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinnermain"
                 style="@style/Widget.AppCompat.Light.DropDownItem.Spinner"
                 android:layout_width="256dp"
                 android:layout_height="23dp"
                 android:layout_centerHorizontal="true"
+                android:animateLayoutChanges="true"
+                android:animationCache="true"
+                android:dropDownWidth="wrap_content"
+                android:focusable="auto"
+                android:foregroundTint="#005F5B5B"
                 android:textAlignment="center"
                 tools:layout_editor_absoluteX="52dp"
                 tools:layout_editor_absoluteY="112dp" />

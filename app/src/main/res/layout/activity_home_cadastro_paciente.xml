@@ -9,6 +9,7 @@
 
 <!--    Barra de ferramentas    -->
     <androidx.appcompat.widget.Toolbar
+        app:titleTextColor="#f0f0f0"
         android:id="@+id/toolbar2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -1135,15 +1136,28 @@
           </LinearLayout>
     </ScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/floatingcadastropaciente"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        android:text="SALVAR"
+        android:textColor="#f0f0f0"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/floatingcadastropaciente"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="35dp"-->
+<!--        android:layout_marginBottom="35dp"-->
+<!--        android:clickable="true"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:srcCompat="@android:drawable/ic_input_add" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

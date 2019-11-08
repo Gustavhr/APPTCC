@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.HomeCadastroUser">
+    tools:context=".Activity.MainActivity">
 
-
-    <!--    Barra de ferramentas    -->
+<!--        Barra de ferramentas    -->
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
-        android:layout_width="0dp"
+        app:titleTextColor="#f0f0f0"
+        android:id="@+id/toolbar4"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
         android:background="@drawable/header"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
@@ -19,138 +21,147 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Cadastro de Usuário"></androidx.appcompat.widget.Toolbar>
+        app:title="Cadastro de Usuário"
+        />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/floatingcadastrouser"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
         android:text="SALVAR"
         android:textColor="#f0f0f0"
-        app:icon="@drawable/ic_action_action_search"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar2"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar4"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar4"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-1dp">
 
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2">
-
-        <!--        LOGIN       -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <!--    Corpo   -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:counterEnabled="true"
-            app:errorEnabled="true">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_userlogin"
-                android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+                    <!--        LOGIN       -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:counterEnabled="true"
+                        app:errorEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txt_userlogin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Usuário"
+                            android:inputType="text" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--        SENHA       -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:counterEnabled="true"
+                        app:errorEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txt_usersenha"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Senha"
+                            android:inputType="textWebPassword" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--        CONFIRMA A SENHA        -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:counterEnabled="true"
+                        app:errorEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txt_usersenha2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Confirme a senha"
+                            android:inputType="textWebPassword" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--        NOME        -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:counterEnabled="true"
+                        app:errorEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txt_usernome"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Nome"
+                            android:inputType="text" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--        EMAIL       -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:counterEnabled="true"
+                        app:errorEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txt_useremail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Email"
+                            android:inputType="text" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--    SPINNER     -->
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="162dp"
                 android:layout_height="wrap_content"
-                android:hint="Usuário"
-                android:inputType="text" />
+                android:text="Tipo de Usuário"
+                android:textAlignment="center"
+                android:textColor="#0E0D0D" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+            <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinnerusercadastro"
+                        android:layout_width="256dp"
+                        android:layout_height="23dp"
+                        tools:layout_editor_absoluteX="52dp"
+                        tools:layout_editor_absoluteY="112dp"
+                        style="@style/Widget.AppCompat.Light.DropDownItem.Spinner"
+                        android:textAlignment="center"
+                        android:layout_gravity="center"
+                        />
 
-        <!--        SENHA       -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:counterEnabled="true"
-            app:errorEnabled="true">
+        </LinearLayout>
+    </ScrollView>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_usersenha"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Senha"
-                android:inputType="textWebPassword" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!--        CONFIRMA A SENHA        -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:counterEnabled="true"
-            app:errorEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_usersenha2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Confirme a senha"
-                android:inputType="textWebPassword" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!--        NOME        -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:counterEnabled="true"
-            app:errorEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_usernome"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nome"
-                android:inputType="text" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!--        EMAIL       -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:counterEnabled="true"
-            app:errorEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_useremail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:inputType="text" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/spinnerusercadastro"
-            android:layout_width="256dp"
-            android:layout_height="23dp"
-            tools:layout_editor_absoluteX="52dp"
-            tools:layout_editor_absoluteY="112dp"
-            style="@style/Widget.AppCompat.Light.DropDownItem.Spinner"
-            android:textAlignment="center"
-            android:layout_gravity="center"
-            />
-
-    </LinearLayout>
-
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/floatingcadastrouser"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginEnd="24dp"-->
-<!--        android:layout_marginBottom="16dp"-->
-<!--        android:clickable="true"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:srcCompat="@android:drawable/ic_input_add" />-->
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

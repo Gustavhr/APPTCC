@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.BoringLayout;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -51,7 +52,7 @@ public class HomeCadastroPaciente extends AppCompatActivity {
     List<Resposta> respostaList;
     EnderecoDatabase enderecodb;
     RespostaDatabase respostaDatabase;
-    FloatingActionButton floating;
+    Button floating;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
