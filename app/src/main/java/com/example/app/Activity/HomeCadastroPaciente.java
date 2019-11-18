@@ -609,7 +609,7 @@ public class HomeCadastroPaciente extends AppCompatActivity {
 
                     }
 
-                    Toast.makeText(this, "Boa", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Cadastro efetuado com sucesso!", Toast.LENGTH_SHORT).show();
                     finish();
                 }
                 //UPDATE

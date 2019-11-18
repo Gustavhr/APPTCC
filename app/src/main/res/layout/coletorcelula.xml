@@ -44,14 +44,14 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="282dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:paddingLeft="11dp">
 
                 <TextView
                     android:id="@+id/cdcoletornome"
-                    android:layout_width="match_parent"
+                    android:layout_width="237dp"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:hint="Nome"
@@ -65,14 +65,14 @@
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 >
+
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/floatingeditarmedicao"
-                    android:theme="@style/Button.White"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    app:srcCompat="@android:drawable/ic_menu_edit"
-                    />
+                    android:theme="@style/Button.White"
+                    app:srcCompat="@android:drawable/ic_menu_edit" />
             </LinearLayout>
         </LinearLayout>
 
