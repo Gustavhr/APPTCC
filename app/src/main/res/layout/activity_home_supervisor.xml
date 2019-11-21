@@ -19,7 +19,7 @@
             app:titleTextColor="#f0f0f0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="@drawable/header"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/isLightTheme"
             app:layout_constraintEnd_toEndOf="parent"
