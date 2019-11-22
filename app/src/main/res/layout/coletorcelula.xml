@@ -49,32 +49,35 @@
                 android:orientation="vertical"
                 android:paddingLeft="11dp">
 
+
                 <TextView
                     android:id="@+id/cdcoletornome"
-                    android:layout_width="237dp"
+                    android:layout_width="200dp"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:hint="Nome"
                     android:textAlignment="inherit"
                     android:textSize="17dp" />
 
+
             </LinearLayout>
 
-            <LinearLayout
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingeditarmedicao"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                >
+                android:layout_height="match_parent"
+                android:backgroundTint="#F0F0F0"
+                android:clickable="true"
+                android:theme="@style/Button.White"
+                app:srcCompat="@android:drawable/ic_menu_edit" />
+            <!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="left"-->
+<!--                >-->
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/floatingeditarmedicao"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#F0F0F0"
-                    android:clickable="true"
-                    android:theme="@style/Button.White"
-                    app:srcCompat="@android:drawable/ic_menu_edit" />
-            </LinearLayout>
+<!--                -->
+<!--            </LinearLayout>-->
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
