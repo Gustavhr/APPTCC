@@ -10,72 +10,87 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="61dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:cardBackgroundColor="#168065"
-        app:cardCornerRadius="20dp"
+        android:padding="0dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="0dp"
         app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:padding="0dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="7dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/txtcoletornome"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:text="Nome:"
-                    android:textAlignment="center"
-                    android:textSize="17dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingLeft="11dp">
-
-                <TextView
-                    android:id="@+id/cdcoletornome"
-                    android:layout_width="237dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:hint="Nome"
-                    android:textAlignment="inherit"
-                    android:textSize="17dp" />
-
-            </LinearLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                >
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="7dp">
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/floatingeditarmedicao"
+                <LinearLayout
                     android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtcoletornome"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="20dp"
+                        android:text="Nome:"
+                        android:textAlignment="center"
+                        android:textColor="#004D40"
+                        android:textSize="17dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="11dp">
+
+                    <TextView
+                        android:id="@+id/cdcoletornome"
+                        android:layout_width="240dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:hint="Nome"
+                        android:textAlignment="inherit"
+                        android:textColor="#004D40"
+                        android:textSize="17dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#F0F0F0"
-                    android:clickable="true"
-                    android:theme="@style/Button.White"
-                    app:srcCompat="@android:drawable/ic_menu_edit" />
+                    android:gravity="left">
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/floatingeditarmedicao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#F0F0F0"
+                        android:clickable="true"
+                        android:theme="@style/Button.White"
+                        app:srcCompat="@android:drawable/ic_menu_edit" />
+                </LinearLayout>
+
+
             </LinearLayout>
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray" />
         </LinearLayout>
+
 
     </androidx.cardview.widget.CardView>
 
