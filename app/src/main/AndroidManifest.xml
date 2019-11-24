@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.HomeMedicao"></activity>
-        <activity android:name=".Activity.HomeCadastroMedicao" />
-        <activity android:name=".Activity.HomeCadastroPaciente" />
-        <activity android:name=".Activity.HomeCadastroUser" />
-        <activity android:name=".Activity.HomeSupervisor" />
-        <activity android:name=".Activity.HomeColetor" />
-        <activity android:name=".Activity.MainActivity">
+        <activity android:name=".Activity.HomeMedicao" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".Activity.HomeCadastroMedicao" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".Activity.HomeCadastroPaciente" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".Activity.HomeCadastroUser" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".Activity.HomeSupervisor" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".Activity.HomeColetor" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".Activity.MainActivity" android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
