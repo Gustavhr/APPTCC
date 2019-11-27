@@ -8,12 +8,10 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:cardBackgroundColor="#168065"
-        app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="0dp"
         app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,102 +19,127 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="109dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/txtcddat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Data"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/txtcdpasist"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="PA Sist.:"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/txtcdpadist"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="PA Dist.:"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/txtcdfc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="FC:"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/txtcdcoment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Comentario:"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-            </LinearLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/cddat"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="30dp">
+
+                    <TextView
+                        android:id="@+id/txtcddat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Data:"
+                        android:textAlignment="center"
+                        android:textColor="#004D40"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/txtcdpasist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="PA Sist.:"
+                        android:textAlignment="center"
+                        android:textColor="#004D40"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/txtcdpadist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="PA Dist.:"
+                        android:textAlignment="center"
+                        android:textColor="#004D40"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/txtcdfc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="FC:"
+                        android:textAlignment="center"
+                        android:textColor="#004D40"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/txtcdcoment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Comentario:"
+                        android:textAlignment="center"
+                        android:textColor="#004D40"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Data"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
 
-                <TextView
-                    android:id="@+id/cdpasist"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/cddat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Data"
+                        android:textAlignment="textStart"
+                        android:textColor="#004D40"
+                        android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/cdpadist"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="cdsupervisorlogin"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/cdpasist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textAlignment="textStart"
+                        android:textColor="#004D40"
+                        android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/cdfc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="cdsupervisoremail"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/cdpadist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="cdsupervisorlogin"
+                        android:textAlignment="textStart"
+                        android:textColor="#004D40"
+                        android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/cdcoment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/cdfc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="cdsupervisoremail"
+                        android:textAlignment="textStart"
+                        android:textColor="#004D40"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/cdcoment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textAlignment="textStart"
+                        android:textColor="#004D40"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

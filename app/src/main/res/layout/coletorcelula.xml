@@ -29,24 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:padding="7dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtcoletornome"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="20dp"
-                        android:text="Nome:"
-                        android:textAlignment="center"
-                        android:textColor="#004D40"
-                        android:textSize="17dp" />
-                </LinearLayout>
+                android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
