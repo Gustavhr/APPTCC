@@ -34,6 +34,7 @@ import java.util.Calendar;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -41,15 +42,15 @@ import android.location.LocationManager;
 public class HomeCadastroPaciente extends AppCompatActivity {
 
     // TELA
-    RadioGroup rg1,rg2,rg3,rg4,rg5,rg6,rg7,rg8,rg9,rg10,rg11,rg12,rgsexo;
-    RadioButton rbs1,rbn1,rbs2,rbn2,rbs3,rbn3,rbs4,rbn4,rbs5,rbn5,rbs6,rbn6,rbs7,rbn7,rbs8,rbn8,rbs9,rbn9,rbs10,rbn10,rbs11,rbn11,rbs12,rbn12,rbmas,rbfem;
-    EditText date1,date2,date3,date4,date5,date6,date7,date8,date9,date10,date11,date12,txtmulti;
+    RadioGroup rg1, rg2, rg3, rg4, rg5, rg6, rg7, rg8, rg9, rg10, rg11, rg12, rgsexo;
+    RadioButton rbs1, rbn1, rbs2, rbn2, rbs3, rbn3, rbs4, rbn4, rbs5, rbn5, rbs6, rbn6, rbs7, rbn7, rbs8, rbn8, rbs9, rbn9, rbs10, rbn10, rbs11, rbn11, rbs12, rbn12, rbmas, rbfem;
+    EditText date1, date2, date3, date4, date5, date6, date7, date8, date9, date10, date11, date12, txtmulti;
 
 
     // RESPOSTAS
-    Boolean [] respotas = new Boolean[12];
-    String [] datasiniciais = new String[12];
-    EditText txtnome,txttelefone,txtrua,txtnumero,txtbairro,txtcidade,txtcep,txtcpf,txtrg;
+    Boolean[] respotas = new Boolean[12];
+    String[] datasiniciais = new String[12];
+    EditText txtnome, txttelefone, txtrua, txtnumero, txtbairro, txtcidade, txtcep, txtcpf, txtrg;
     Character sexo = ' ';
 
 
@@ -64,6 +65,7 @@ public class HomeCadastroPaciente extends AppCompatActivity {
     Button floating;
     // DECLARAÇÃO DOS ATRIBUTOS VISUAIS QUE SERÃO ACESSADOS VIA PROGRAMAÇÃO
     private TextView txtLatitude, txtLongitude;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
@@ -102,7 +104,6 @@ public class HomeCadastroPaciente extends AppCompatActivity {
 //            smf = new SimpleMaskFormatter("(NN)NNNNN-NNNN");
 //            mtw = new MaskTextWatcher(txttelefone, smf);
 //            txttelefone.addTextChangedListener(mtw);
-
 
 
             //FIM MASCARA
@@ -447,37 +448,36 @@ public class HomeCadastroPaciente extends AppCompatActivity {
             smf = new SimpleMaskFormatter("NNNNN-NNN");
             mtw = new MaskTextWatcher(txtcep, smf);
             txtcep.addTextChangedListener(mtw);
-        }
-        catch (Exception ex)
-        {
-            Toast.makeText(this, "Houve um erro na criação da página: " + ex.getMessage() , Toast.LENGTH_SHORT).show();
+        } catch (Exception ex) {
+            Toast.makeText(this, "Houve um erro na criação da página: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
 
     // METODO PARA EXECUTAR A AÇÃO DO BOTÃO
-    public void onClickGetLocation(View view){
+    public void onClickGetLocation(View view) {
         // GERENCIADOR DO ANDROID
         PackageManager pm = this.getPackageManager();
         // VERIFICA SE O GPS ESTÁ HABILITADO
-        if(pm.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS)){
+        if (pm.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS)) {
             // VERIFICA SE O USUÁRIO TEM PERMISSÃO DE USAR O GPS
-            if(ContextCompat.checkSelfPermission(this,
+            if (ContextCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED){
+                    != PackageManager.PERMISSION_GRANTED) {
                 // ABRE A JANELA PEDINDO PERMISSÃO PARA ACESSAR O GPS
                 ActivityCompat.requestPermissions(this, new String[]{
-                        Manifest.permission.ACCESS_FINE_LOCATION },0
+                        Manifest.permission.ACCESS_FINE_LOCATION}, 0
                 );
-            }else {
+            } else {
                 // RECUPERA A INFORMAÇÃO DE LOCALIZAÇÃO
                 LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-                Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                double  longitude = 0;
+                //Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
+                Location location = getLastKnownLocation();
+                double longitude = 0;
                 double latitude = 0;
                 //tratamento para n estourar erro se localização for null
-                if(location != null)
-                {
+                if (location != null) {
                     longitude = location.getLongitude();
                     latitude = location.getLatitude();
                 }
@@ -485,10 +485,39 @@ public class HomeCadastroPaciente extends AppCompatActivity {
                 txtLatitude.setText(String.valueOf(latitude));
                 txtLongitude.setText(String.valueOf(longitude));
             }
-        }else{
+        } else {
             Toast.makeText(this, "Não é possível usar o GPS!",
                     Toast.LENGTH_LONG).show();
         }
+    }
+
+
+    private Location getLastKnownLocation() {
+        LocationManager mLocationManager;
+        mLocationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
+        List<String> providers = mLocationManager.getProviders(true);
+        Location bestLocation = null;
+        for (String provider : providers) {
+            if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    Activity#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for Activity#requestPermissions for more details.
+                return null;
+            }
+            Location l = mLocationManager.getLastKnownLocation(provider);
+            if (l == null) {
+                continue;
+            }
+            if (bestLocation == null || l.getAccuracy() < bestLocation.getAccuracy()) {
+                // Found best last known location: %s", l);
+                bestLocation = l;
+            }
+        }
+        return bestLocation;
     }
 
     public void marcaRadio(Integer i,Boolean resp,String date)
