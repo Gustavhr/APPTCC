@@ -1,7 +1,12 @@
 package com.example.app.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.BoringLayout;
 import android.view.View;
@@ -9,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.app.Dados.EnderecoDatabase;
@@ -28,6 +34,9 @@ import java.util.Calendar;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 
 public class HomeCadastroPaciente extends AppCompatActivity {
 
@@ -53,6 +62,8 @@ public class HomeCadastroPaciente extends AppCompatActivity {
     EnderecoDatabase enderecodb;
     RespostaDatabase respostaDatabase;
     Button floating;
+    // DECLARAÇÃO DOS ATRIBUTOS VISUAIS QUE SERÃO ACESSADOS VIA PROGRAMAÇÃO
+    private TextView txtLatitude, txtLongitude;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
@@ -81,6 +92,9 @@ public class HomeCadastroPaciente extends AppCompatActivity {
                 }
             });
 
+            // REFERÊNCIA AO OBJETO VISUAL
+            txtLatitude = findViewById(R.id.txtLatId);
+            txtLongitude = findViewById(R.id.txtLonId);
             //CRIANDO MASCARA DE TESTE
 //            SimpleMaskFormatter smf = new SimpleMaskFormatter("NNN.NNN.NNN-NN");
 //            MaskTextWatcher mtw = new MaskTextWatcher(txtcpf, smf);
@@ -437,6 +451,43 @@ public class HomeCadastroPaciente extends AppCompatActivity {
         catch (Exception ex)
         {
             Toast.makeText(this, "Houve um erro na criação da página: " + ex.getMessage() , Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    // METODO PARA EXECUTAR A AÇÃO DO BOTÃO
+    public void onClickGetLocation(View view){
+        // GERENCIADOR DO ANDROID
+        PackageManager pm = this.getPackageManager();
+        // VERIFICA SE O GPS ESTÁ HABILITADO
+        if(pm.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS)){
+            // VERIFICA SE O USUÁRIO TEM PERMISSÃO DE USAR O GPS
+            if(ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED){
+                // ABRE A JANELA PEDINDO PERMISSÃO PARA ACESSAR O GPS
+                ActivityCompat.requestPermissions(this, new String[]{
+                        Manifest.permission.ACCESS_FINE_LOCATION },0
+                );
+            }else {
+                // RECUPERA A INFORMAÇÃO DE LOCALIZAÇÃO
+                LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                double  longitude = 0;
+                double latitude = 0;
+                //tratamento para n estourar erro se localização for null
+                if(location != null)
+                {
+                    longitude = location.getLongitude();
+                    latitude = location.getLatitude();
+                }
+                // EXIBE A INFORMAÇÃO DE LOCALIAÇÃO NA TELA PARA O USUÁRIO
+                txtLatitude.setText(String.valueOf(latitude));
+                txtLongitude.setText(String.valueOf(longitude));
+            }
+        }else{
+            Toast.makeText(this, "Não é possível usar o GPS!",
+                    Toast.LENGTH_LONG).show();
         }
     }
 

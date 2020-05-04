@@ -160,6 +160,47 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+
+
+            <!-- GPS -->
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="710dp"
+                android:layout_height="38dp"
+                android:layout_margin="5dp"
+                android:onClick="onClickGetLocation"
+                android:padding="5dp"
+                android:text="Recuperar Localização"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtLatId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                android:text="Latitude:"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtLonId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                android:text="Longitude:"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
             <!--    ENDERECO    -->
             <LinearLayout
                 android:layout_width="match_parent"
