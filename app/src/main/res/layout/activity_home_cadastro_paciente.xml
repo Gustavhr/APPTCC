@@ -25,7 +25,7 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,63 +35,59 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="15dp">
 
 
             <!--    NOME DO PACIENTE    -->
-           <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:errorEnabled="true"
                 app:counterEnabled="true"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                >
+                app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txt_nome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nome do paciente"
-                    android:inputType="text"
-                    android:id="@+id/txt_nome"
-                    />
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--    CPF    -->
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:errorEnabled="true"
                 app:counterEnabled="true"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                >
+                app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txt_cpfpaciente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="CPF"
-                    android:inputType="number"
-                    android:id="@+id/txt_cpfpaciente"/>
+                    android:inputType="number" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--    RG    -->
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:errorEnabled="true"
                 app:counterEnabled="true"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                >
+                app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txt_rgpaciente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="RG"
                     android:inputType="text"
-                    android:maxLength="14"
-                    android:id="@+id/txt_rgpaciente"/>
+                    android:maxLength="14" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,8 +95,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -144,62 +140,71 @@
 
             <!--    TELEFONE    -->
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:errorEnabled="true"
                 app:counterEnabled="true"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                >
+                app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txt_telefone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Telefone"
-                    android:inputType="number"
-                    android:id="@+id/txt_telefone"/>
+                    android:inputType="number" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
 
 
             <!-- GPS -->
 
             <Button
                 android:id="@+id/button"
-                android:layout_width="710dp"
-                android:layout_height="38dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_margin="5dp"
+                android:background="@drawable/gpsicon"
+                android:breakStrategy="simple"
+                android:drawableBottom="@drawable/gpsicon"
+                android:foreground="@drawable/gpsicon"
                 android:onClick="onClickGetLocation"
                 android:padding="5dp"
-                android:text="Recuperar Localização"
+                android:scrollbarTrackHorizontal="@drawable/gpsicon"
+                android:scrollbarTrackVertical="@drawable/gpsicon"
                 android:textAlignment="center"
-                android:textColor="@android:color/black"
+                android:textColor="#000000"
+                android:textColorHighlight="#00FFFFFF"
+                android:textColorLink="#68FFFFFF"
+                android:textCursorDrawable="@drawable/gpsicon"
+                android:textSelectHandle="@drawable/gpsicon"
+                android:textSelectHandleLeft="@drawable/gpsicon"
+                android:textSelectHandleRight="@drawable/gpsicon"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:icon="@drawable/gpsicon"
+                app:rippleColor="@color/mtrl_on_surface_disabled" />
 
             <TextView
                 android:id="@+id/txtLatId"
-                android:layout_width="match_parent"
+                android:layout_width="375dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:padding="5dp"
                 android:text="Latitude:"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/txtLonId"
-                android:layout_width="match_parent"
+                android:layout_width="375dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:padding="5dp"
                 android:text="Longitude:"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="10sp" />
 
             <!--    ENDERECO    -->
             <LinearLayout
@@ -217,7 +222,7 @@
                         android:id="@+id/txtendereco"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Endereco"/>
+                        android:hint="Endereco" />
 
                 </LinearLayout>
 
@@ -227,103 +232,98 @@
                     android:orientation="vertical"
                     android:outlineProvider="background">
 
-                <!--    RUA/AVENIDA     -->
+                    <!--    RUA/AVENIDA     -->
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:errorEnabled="true"
-                        app:counterEnabled="true"
                         android:layout_centerHorizontal="true"
-                        >
+                        app:counterEnabled="true"
+                        app:errorEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Rua / Avenida"
-                            android:inputType="textPersonName"
                             android:id="@+id/txt_end"
-                            android:layout_centerHorizontal="true"/>
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:hint="Rua / Avenida"
+                            android:inputType="textPersonName" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                <!--    NUMERO    -->
+                    <!--    NUMERO    -->
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:errorEnabled="true"
-                        app:counterEnabled="true"
                         android:layout_centerHorizontal="true"
-                        >
+                        app:counterEnabled="true"
+                        app:errorEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Número"
-                            android:inputType="textPersonName"
                             android:id="@+id/txt_num"
-                            android:layout_centerHorizontal="true"/>
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:hint="Número"
+                            android:inputType="textPersonName" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                <!--    BAIRRO      -->
+                    <!--    BAIRRO      -->
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:errorEnabled="true"
-                        app:counterEnabled="true"
                         android:layout_centerHorizontal="true"
-                        >
+                        app:counterEnabled="true"
+                        app:errorEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Bairro"
-                            android:inputType="textPersonName"
                             android:id="@+id/txt_bairro"
-                            android:layout_centerHorizontal="true"/>
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:hint="Bairro"
+                            android:inputType="textPersonName" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                <!--    CIDADE      -->
+                    <!--    CIDADE      -->
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:errorEnabled="true"
-                        app:counterEnabled="true"
                         android:layout_centerHorizontal="true"
-                        >
+                        app:counterEnabled="true"
+                        app:errorEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Cidade"
-                            android:inputType="textPersonName"
                             android:id="@+id/txt_cidade"
-                            android:layout_centerHorizontal="true"/>
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:hint="Cidade"
+                            android:inputType="textPersonName" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                <!--    CEP     -->
+                    <!--    CEP     -->
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:errorEnabled="true"
-                        app:counterEnabled="true"
                         android:layout_centerHorizontal="true"
-                        >
+                        app:counterEnabled="true"
+                        app:errorEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtcep"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
                             android:hint="CEP"
-                            android:inputType="number"
-                            android:id="@+id/txtcep"
-                            android:layout_centerHorizontal="true"/>
+                            android:inputType="number" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -347,7 +347,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:hint="Tem pressão alta?"
-                        android:textSize="17dp"/>
+                        android:textSize="17dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -1174,7 +1174,7 @@
 
             </LinearLayout>
 
-          </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 
     <com.google.android.material.button.MaterialButton

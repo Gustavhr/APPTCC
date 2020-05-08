@@ -35,4 +35,5 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:$room_version"
     implementation 'com.miguelcatalan:materialsearchview:1.4.0'
     implementation 'com.github.rtoshiro.mflibrary:mflibrary:1.0.0'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
 }
