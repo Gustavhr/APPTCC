@@ -29,8 +29,10 @@
         android:layout_marginTop="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -157,54 +159,62 @@
 
 
             <!-- GPS -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/gpsicon"
-                android:breakStrategy="simple"
-                android:drawableBottom="@drawable/gpsicon"
-                android:foreground="@drawable/gpsicon"
-                android:onClick="onClickGetLocation"
-                android:padding="5dp"
-                android:scrollbarTrackHorizontal="@drawable/gpsicon"
-                android:scrollbarTrackVertical="@drawable/gpsicon"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textColorHighlight="#00FFFFFF"
-                android:textColorLink="#68FFFFFF"
-                android:textCursorDrawable="@drawable/gpsicon"
-                android:textSelectHandle="@drawable/gpsicon"
-                android:textSelectHandleLeft="@drawable/gpsicon"
-                android:textSelectHandleRight="@drawable/gpsicon"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:icon="@drawable/gpsicon"
-                app:rippleColor="@color/mtrl_on_surface_disabled" />
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/gpsicon"
+                    android:breakStrategy="simple"
+                    android:drawableBottom="@drawable/gpsicon"
+                    android:foreground="@drawable/gpsicon"
+                    android:onClick="onClickGetLocation"
+                    android:padding="5dp"
+                    android:scrollbarTrackHorizontal="@drawable/gpsicon"
+                    android:scrollbarTrackVertical="@drawable/gpsicon"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textColorHighlight="#00FFFFFF"
+                    android:textColorLink="#68FFFFFF"
+                    android:textCursorDrawable="@drawable/gpsicon"
+                    android:textSelectHandle="@drawable/gpsicon"
+                    android:textSelectHandleLeft="@drawable/gpsicon"
+                    android:textSelectHandleRight="@drawable/gpsicon"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:icon="@drawable/gpsicon"
+                    app:rippleColor="@color/mtrl_on_surface_disabled" />
 
-            <TextView
-                android:id="@+id/txtLatId"
-                android:layout_width="375dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:padding="5dp"
-                android:text="Latitude:"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="10sp" />
+                <TextView
+                    android:id="@+id/txtLatId"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"
+                    android:text="Latitude:"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="10sp" />
 
-            <TextView
-                android:id="@+id/txtLonId"
-                android:layout_width="375dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:padding="5dp"
-                android:text="Longitude:"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="10sp" />
+                <TextView
+                    android:id="@+id/txtLonId"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"
+                    android:text="Longitude:"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="10sp" />
+            </LinearLayout>
 
             <!--    ENDERECO    -->
             <LinearLayout
